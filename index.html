@@ -402,34 +402,52 @@
 
 
     <!-- تسجيل دخول الطلاب -->
-    <div id="studentLogin" class="internal">
+<div id="studentLogin" class="internal">
 
-      <div class="construction">
+  <div class="developer-box">
 
-        <div class="icon">
-          🎓
-        </div>
+    <h2>🎓 تسجيل دخول الطالب</h2>
 
-        <h2>
-          دخول الطلاب
-        </h2>
+    <p style="text-align:center;color:#756b73;">
+      اكتب اسمك وكود الطالب للدخول.
+    </p>
 
-        <p>
-          سيتم تفعيل نظام تسجيل دخول الطلاب هنا قريباً.
-          <br>
-          تابع المنصة لمعرفة موعد التفعيل.
-        </p>
+    <input
+      id="studentName"
+      class="input"
+      type="text"
+      placeholder="اسم الطالب"
+    >
 
-      </div>
+    <input
+      id="studentCode"
+      class="input"
+      type="text"
+      inputmode="numeric"
+      placeholder="كود الطالب"
+    >
 
-      <button
-        class="btn back"
-        onclick="goHome()"
-      >
-        ↩️ العودة للرئيسية
-      </button>
-
+    <div id="studentError" class="error">
+      ❌ الاسم أو الكود غير صحيح.
     </div>
+
+    <button
+      class="btn login"
+      onclick="studentLogin()"
+    >
+      🚀 دخول
+    </button>
+
+    <button
+      class="btn back"
+      onclick="goHome()"
+    >
+      ↩️ العودة للرئيسية
+    </button>
+
+  </div>
+
+</div>
 
 
     <!-- قسم المطور -->

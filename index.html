@@ -569,7 +569,38 @@ const students = [
       .classList.add("active");
 
   }
+/* تسجيل دخول الطالب */
+function studentLogin() {
 
+  const name = document
+    .getElementById("studentName")
+    .value
+    .trim();
+
+  const code = document
+    .getElementById("studentCode")
+    .value
+    .trim();
+
+  const error = document
+    .getElementById("studentError");
+
+  const student = students.find(function(item) {
+    return item.name === name && item.code === code;
+  });
+
+  if (!student) {
+
+    error.style.display = "block";
+    return;
+
+  }
+
+  error.style.display = "none";
+
+  alert("أهلاً يا " + student.name + " ❤️");
+
+  }
 
   /* فتح قسم المطور */
   function openDeveloper() {

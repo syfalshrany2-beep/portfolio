@@ -689,7 +689,15 @@ document.getElementById("studentPanel")
 document.getElementById("studentWelcome")
   .textContent = student.name;
   }
+function openGrades() {
 
+  document.getElementById("studentPanel")
+    .classList.remove("active");
+
+  document.getElementById("gradesPanel")
+    .classList.add("active");
+
+}
   /* فتح قسم المطور */
   function openDeveloper() {
 

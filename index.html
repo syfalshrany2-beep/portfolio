@@ -638,8 +638,14 @@ function studentLogin() {
 
   error.style.display = "none";
 
-  alert("أهلاً يا " + student.name + " ❤️");
+  document.getElementById("studentLogin")
+  .classList.remove("active");
 
+document.getElementById("studentPanel")
+  .classList.add("active");
+
+document.getElementById("studentWelcome")
+  .textContent = student.name;
   }
 
   /* فتح قسم المطور */

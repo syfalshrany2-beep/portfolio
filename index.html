@@ -40,7 +40,6 @@ body{
   color:#777
 }
 
-/* صورة اللوجو */
 .profile{
   width:130px;
   height:130px;
@@ -210,6 +209,12 @@ body{
   text-align:center;
   margin-top:10px
 }
+
+hr{
+  border:0;
+  border-top:1px solid #eee;
+  margin:20px 0
+}
 </style>
 </head>
 
@@ -370,7 +375,7 @@ body{
 </div>
 
 
-<!-- الدروس -->
+<!-- الدروس للطلاب -->
 <div id="lessonsPanel" class="page">
 
 <div class="box">
@@ -657,10 +662,54 @@ body{
 </div>
 
 
-<!-- إضافة إعلان -->
+<!-- إدارة الدروس -->
 <div class="dev-section">
 
-<h3>📢 إضافة إعلان</h3>
+<h3>📚 إدارة الدروس</h3>
+
+<input
+  id="lessonTitle"
+  class="input"
+  type="text"
+  placeholder="عنوان الدرس"
+>
+
+<input
+  id="lessonDescription"
+  class="input"
+  type="text"
+  placeholder="وصف الدرس"
+>
+
+<input
+  id="lessonVideo"
+  class="input"
+  type="url"
+  placeholder="رابط فيديو الدرس"
+>
+
+<button
+  class="btn login"
+  onclick="addLesson()"
+>
+➕ إضافة الدرس
+</button>
+
+<hr>
+
+<h3>📚 الدروس المضافة</h3>
+
+<div id="developerLessonsList">
+⏳ جاري تحميل الدروس...
+</div>
+
+</div>
+
+
+<!-- إدارة الإعلانات -->
+<div class="dev-section">
+
+<h3>📢 إدارة الإعلانات</h3>
 
 <input
   id="announcementTitle"
@@ -682,6 +731,14 @@ body{
 >
 📢 نشر الإعلان
 </button>
+
+<hr>
+
+<h3>📢 الإعلانات المنشورة</h3>
+
+<div id="developerAnnouncementsList">
+⏳ جاري تحميل الإعلانات...
+</div>
 
 </div>
 
@@ -732,7 +789,6 @@ window.supabase.createClient(
   SUPABASE_KEY
 );
 
-
 let currentStudent = null;
 let developerSession = null;
 
@@ -767,7 +823,7 @@ function showPage(pageId){
 
 function goHome(){
 
-  currentStudent = null;
+  currentStudent=null;
 
   showPage("home");
 
@@ -782,7 +838,7 @@ function goHome(){
     document.getElementById(id);
 
     if(el)
-      el.value = "";
+      el.value="";
 
   });
 
@@ -873,11 +929,11 @@ async function studentLogin(){
   }
 
 
-  currentStudent = data;
+  currentStudent=data;
 
   document
   .getElementById("studentWelcome")
-  .textContent = data.name;
+  .textContent=data.name;
 
   status.textContent="";
 
@@ -941,8 +997,7 @@ async function checkDeveloperPassword(){
   }
 
 
-  developerSession =
-  data.session;
+  developerSession=data.session;
 
   await updateDeveloperLists();
 
@@ -999,6 +1054,10 @@ function formatSupabaseError(error){
 }
 
 
+/* =========================
+   تحميل بيانات لوحة المطور
+========================= */
+
 async function updateDeveloperLists(){
 
   if(!(await requireDeveloper()))
@@ -1044,77 +1103,88 @@ async function updateDeveloperLists(){
     ).replace(/\n/g,"<br>") +
     "</small></div>";
 
-    return;
+  }
+  else{
+
+    const list =
+    document.getElementById("studentsList");
+
+    const gs =
+    document.getElementById("gradeStudent");
+
+    const es =
+    document.getElementById("evaluationStudent");
+
+
+    list.innerHTML="";
+    gs.innerHTML="";
+    es.innerHTML="";
+
+
+    if(!data.length){
+
+      list.innerHTML =
+      "<div class='empty'>لا يوجد طلاب حالياً.</div>";
+
+    }
+    else{
+
+      data.forEach(s=>{
+
+        list.innerHTML += `
+          <div class="card">
+
+            <strong>
+              👨‍🎓 ${escapeHtml(s.name)}
+            </strong>
+
+            <br>
+
+            🔑 الكود:
+            ${escapeHtml(s.code)}
+
+            <br>
+
+            <button
+              class="small-btn delete"
+              onclick="deleteStudent('${s.id}')"
+            >
+              🗑️ حذف
+            </button>
+
+          </div>
+        `;
+
+
+        gs.innerHTML += `
+          <option value="${s.id}">
+            ${escapeHtml(s.name)}
+          </option>
+        `;
+
+
+        es.innerHTML += `
+          <option value="${s.id}">
+            ${escapeHtml(s.name)}
+          </option>
+        `;
+
+      });
+
+    }
+
   }
 
 
-  const list =
-  document.getElementById("studentsList");
-
-  const gs =
-  document.getElementById("gradeStudent");
-
-  const es =
-  document.getElementById("evaluationStudent");
-
-
-  list.innerHTML="";
-  gs.innerHTML="";
-  es.innerHTML="";
-
-
-  if(!data.length){
-
-    list.innerHTML =
-    "<div class='empty'>لا يوجد طلاب حالياً.</div>";
-
-    return;
-  }
-
-
-  data.forEach(s=>{
-
-    list.innerHTML += `
-      <div class="card">
-
-        <strong>
-          👨‍🎓 ${escapeHtml(s.name)}
-        </strong>
-
-        <br>
-
-        🔑 الكود:
-        ${escapeHtml(s.code)}
-
-        <br>
-
-        <button
-          class="small-btn delete"
-          onclick="deleteStudent('${s.id}')"
-        >
-          🗑️ حذف
-        </button>
-
-      </div>
-    `;
-
-
-    gs.innerHTML += `
-      <option value="${s.id}">
-        ${escapeHtml(s.name)}
-      </option>
-    `;
-
-
-    es.innerHTML += `
-      <option value="${s.id}">
-        ${escapeHtml(s.name)}
-      </option>
-    `;
-
-  });
+  /* تحميل الدروس والإعلانات حتى لو لم يوجد طلاب */
+  await loadDeveloperLessons();
+  await loadDeveloperAnnouncements();
 }
 
+
+/* =========================
+   الطلاب
+========================= */
 
 async function addStudent(){
 
@@ -1248,7 +1318,8 @@ async function deleteStudent(id){
   if(error){
 
     alert(
-      "❌ تعذر حذف الطالب."
+      "❌ تعذر حذف الطالب.\n\n"+
+      formatSupabaseError(error)
     );
 
     console.error(error);
@@ -1260,6 +1331,10 @@ async function deleteStudent(id){
   await updateDeveloperLists();
 }
 
+
+/* =========================
+   الدرجات
+========================= */
 
 async function addGrade(){
 
@@ -1325,7 +1400,8 @@ async function addGrade(){
   if(error){
 
     alert(
-      "❌ تعذر إضافة الدرجة."
+      "❌ تعذر إضافة الدرجة.\n\n"+
+      formatSupabaseError(error)
     );
 
     console.error(error);
@@ -1392,7 +1468,8 @@ async function addEvaluation(){
   if(error){
 
     alert(
-      "❌ تعذر إضافة التقييم."
+      "❌ تعذر إضافة التقييم.\n\n"+
+      formatSupabaseError(error)
     );
 
     console.error(error);
@@ -1411,6 +1488,10 @@ async function addEvaluation(){
   );
 }
 
+
+/* =========================
+   الواجبات
+========================= */
 
 async function addHomework(){
 
@@ -1461,7 +1542,8 @@ async function addHomework(){
   if(error){
 
     alert(
-      "❌ تعذر إضافة الواجب."
+      "❌ تعذر إضافة الواجب.\n\n"+
+      formatSupabaseError(error)
     );
 
     console.error(error);
@@ -1486,6 +1568,266 @@ async function addHomework(){
   );
 }
 
+
+/* =========================
+   الدروس - إضافة
+========================= */
+
+async function addLesson(){
+
+  if(!(await requireDeveloper()))
+    return;
+
+
+  const title =
+  document
+  .getElementById("lessonTitle")
+  .value
+  .trim();
+
+
+  const description =
+  document
+  .getElementById("lessonDescription")
+  .value
+  .trim();
+
+
+  const video_url =
+  document
+  .getElementById("lessonVideo")
+  .value
+  .trim();
+
+
+  if(!title){
+
+    alert(
+      "اكتب عنوان الدرس."
+    );
+
+    return;
+  }
+
+
+  const {error} =
+  await db
+  .from("lessons")
+  .insert({
+    title,
+    description,
+    video_url
+  });
+
+
+  if(error){
+
+    console.error(
+      "lesson insert error:",
+      error
+    );
+
+
+    alert(
+      "❌ تعذر إضافة الدرس.\n\n"+
+      formatSupabaseError(error)
+    );
+
+    return;
+  }
+
+
+  document
+  .getElementById("lessonTitle")
+  .value="";
+
+
+  document
+  .getElementById("lessonDescription")
+  .value="";
+
+
+  document
+  .getElementById("lessonVideo")
+  .value="";
+
+
+  alert(
+    "✅ تم إضافة الدرس بنجاح."
+  );
+
+
+  await loadDeveloperLessons();
+}
+
+
+/* =========================
+   الدروس - تحميل للمطور
+========================= */
+
+async function loadDeveloperLessons(){
+
+  const list =
+  document.getElementById(
+    "developerLessonsList"
+  );
+
+
+  if(!list)
+    return;
+
+
+  list.innerHTML =
+  "⏳ جاري تحميل الدروس...";
+
+
+  const {data,error} =
+  await db
+  .from("lessons")
+  .select(
+    "id,title,description,video_url,created_at"
+  )
+  .order(
+    "created_at",
+    {ascending:false}
+  );
+
+
+  if(error){
+
+    console.error(
+      "developer lessons error:",
+      error
+    );
+
+
+    list.innerHTML = `
+
+      <div class="empty">
+
+        ❌ تعذر تحميل الدروس.
+
+        <br><br>
+
+        <small>
+          تأكد أن جدول
+          <b>lessons</b>
+          موجود في Supabase.
+        </small>
+
+      </div>
+
+    `;
+
+    return;
+  }
+
+
+  if(!data || !data.length){
+
+    list.innerHTML =
+    "<div class='empty'>📚 لا توجد دروس مضافة حالياً.</div>";
+
+    return;
+  }
+
+
+  list.innerHTML =
+  data.map(lesson=>`
+
+    <div class="card">
+
+      <h3>
+        📚 ${escapeHtml(lesson.title)}
+      </h3>
+
+      ${
+        lesson.description
+        ? `
+          <p>
+            ${escapeHtml(
+              lesson.description
+            )}
+          </p>
+        `
+        : ""
+      }
+
+      ${
+        lesson.video_url
+        ? `
+          <p>
+            🔗 يوجد رابط فيديو للدرس
+          </p>
+        `
+        : ""
+      }
+
+      <button
+        class="small-btn delete"
+        onclick="deleteLesson('${lesson.id}')"
+      >
+        🗑️ حذف الدرس
+      </button>
+
+    </div>
+
+  `).join("");
+}
+
+
+/* =========================
+   الدروس - حذف
+========================= */
+
+async function deleteLesson(id){
+
+  if(!(await requireDeveloper()))
+    return;
+
+
+  if(!confirm(
+    "هل أنت متأكد من حذف هذا الدرس؟"
+  ))
+    return;
+
+
+  const {error} =
+  await db
+  .from("lessons")
+  .delete()
+  .eq("id",id);
+
+
+  if(error){
+
+    console.error(
+      "lesson delete error:",
+      error
+    );
+
+
+    alert(
+      "❌ تعذر حذف الدرس.\n\n"+
+      formatSupabaseError(error)
+    );
+
+    return;
+  }
+
+
+  alert(
+    "✅ تم حذف الدرس."
+  );
+
+
+  await loadDeveloperLessons();
+}
+
+
+/* =========================
+   الإعلانات - إضافة
+========================= */
 
 async function addAnnouncement(){
 
@@ -1528,11 +1870,16 @@ async function addAnnouncement(){
 
   if(error){
 
-    alert(
-      "❌ تعذر نشر الإعلان."
+    console.error(
+      "announcement insert error:",
+      error
     );
 
-    console.error(error);
+
+    alert(
+      "❌ تعذر نشر الإعلان.\n\n"+
+      formatSupabaseError(error)
+    );
 
     return;
   }
@@ -1551,8 +1898,146 @@ async function addAnnouncement(){
   alert(
     "📢 تم نشر الإعلان."
   );
+
+
+  await loadDeveloperAnnouncements();
 }
 
+
+/* =========================
+   الإعلانات - تحميل للمطور
+========================= */
+
+async function loadDeveloperAnnouncements(){
+
+  const list =
+  document.getElementById(
+    "developerAnnouncementsList"
+  );
+
+
+  if(!list)
+    return;
+
+
+  list.innerHTML =
+  "⏳ جاري تحميل الإعلانات...";
+
+
+  const {data,error} =
+  await db
+  .from("announcements")
+  .select(
+    "id,title,body,created_at"
+  )
+  .order(
+    "created_at",
+    {ascending:false}
+  );
+
+
+  if(error){
+
+    console.error(
+      "developer announcements error:",
+      error
+    );
+
+
+    list.innerHTML =
+    "<div class='empty'>❌ تعذر تحميل الإعلانات.</div>";
+
+    return;
+  }
+
+
+  if(!data || !data.length){
+
+    list.innerHTML =
+    "<div class='empty'>📢 لا توجد إعلانات منشورة.</div>";
+
+    return;
+  }
+
+
+  list.innerHTML =
+  data.map(a=>`
+
+    <div class="card">
+
+      <h3>
+        📢 ${escapeHtml(a.title)}
+      </h3>
+
+      <p>
+        ${escapeHtml(a.body)}
+      </p>
+
+      <button
+        class="small-btn delete"
+        onclick="deleteAnnouncement('${a.id}')"
+      >
+        🗑️ حذف الإعلان
+      </button>
+
+    </div>
+
+  `).join("");
+}
+
+
+/* =========================
+   الإعلانات - حذف
+========================= */
+
+async function deleteAnnouncement(id){
+
+  if(!(await requireDeveloper()))
+    return;
+
+
+  if(!confirm(
+    "هل أنت متأكد من حذف هذا الإعلان؟"
+  ))
+    return;
+
+
+  const {error} =
+  await db
+  .from("announcements")
+  .delete()
+  .eq("id",id);
+
+
+  if(error){
+
+    console.error(
+      "announcement delete error:",
+      error
+    );
+
+
+    alert(
+      "❌ تعذر حذف الإعلان.\n\n"+
+      formatSupabaseError(error)
+    );
+
+    return;
+  }
+
+
+  alert(
+    "✅ تم حذف الإعلان."
+  );
+
+
+  await loadDeveloperAnnouncements();
+}
+
+
+/* =========================
+   درجات الطالب
+========================= */
 
 async function showGrades(){
 
@@ -1562,6 +2047,7 @@ async function showGrades(){
 
   const list =
   document.getElementById("gradesList");
+
 
   list.innerHTML =
   "⏳ جاري تحميل الدرجات...";
@@ -1600,11 +2086,13 @@ async function showGrades(){
     html =
     "<div class='empty'>لا توجد درجات مضافة حتى الآن.</div>";
 
-  }else{
+  }
+  else{
 
     data.grades.forEach(g=>{
 
       html += `
+
         <div class="grade-row">
 
           <strong>
@@ -1619,6 +2107,7 @@ async function showGrades(){
           ${escapeHtml(g.max)}
 
         </div>
+
       `;
 
     });
@@ -1634,9 +2123,11 @@ async function showGrades(){
     data.evaluations.forEach(e=>{
 
       html += `
+
         <div class="grade-row">
           ⭐ ${escapeHtml(e.text)}
         </div>
+
       `;
 
     });
@@ -1649,10 +2140,16 @@ async function showGrades(){
 }
 
 
+/* =========================
+   الواجبات
+========================= */
+
 async function showHomework(){
 
   const list =
-  document.getElementById("homeworkList");
+  document.getElementById(
+    "homeworkList"
+  );
 
 
   list.innerHTML =
@@ -1679,14 +2176,12 @@ async function showHomework(){
     "<div class='empty'>تعذر تحميل الواجبات.</div>";
 
   }
-
   else if(!data.length){
 
     list.innerHTML =
     "<div class='empty'>لا توجد واجبات حالياً.</div>";
 
   }
-
   else{
 
     list.innerHTML =
@@ -1723,10 +2218,16 @@ async function showHomework(){
 }
 
 
+/* =========================
+   الدروس للطلاب
+========================= */
+
 async function showLessons(){
 
   const list =
-  document.getElementById("lessonsList");
+  document.getElementById(
+    "lessonsList"
+  );
 
 
   list.innerHTML =
@@ -1739,7 +2240,9 @@ async function showLessons(){
   const {data,error} =
   await db
   .from("lessons")
-  .select("*")
+  .select(
+    "id,title,description,video_url,created_at"
+  )
   .order(
     "created_at",
     {ascending:false}
@@ -1763,12 +2266,10 @@ async function showLessons(){
         <br><br>
 
         <small>
-
           إذا كان جدول الدروس لم يتم إنشاؤه
           في Supabase بعد،
           أنشئ جدول باسم
           <b>lessons</b>.
-
         </small>
 
       </div>
@@ -1793,20 +2294,16 @@ async function showLessons(){
 
     const title =
     lesson.title ||
-    lesson.name ||
     "درس";
 
 
     const description =
     lesson.description ||
-    lesson.text ||
     "";
 
 
     const video =
     lesson.video_url ||
-    lesson.url ||
-    lesson.link ||
     "";
 
 
@@ -1818,13 +2315,15 @@ async function showLessons(){
           📚 ${escapeHtml(title)}
         </h3>
 
-
         ${
           description
-          ? `<p>${escapeHtml(description)}</p>`
+          ? `
+            <p>
+              ${escapeHtml(description)}
+            </p>
+          `
           : ""
         }
-
 
         ${
           video
@@ -1833,11 +2332,9 @@ async function showLessons(){
             <button
               class="btn login"
               style="width:100%;margin-top:10px"
-              onclick="window.open('${escapeHtml(video)}','_blank')"
+              onclick="openLessonVideo('${escapeHtml(video)}')"
             >
-
               ▶️ فتح الدرس
-
             </button>
 
           `
@@ -1851,6 +2348,23 @@ async function showLessons(){
   }).join("");
 }
 
+
+function openLessonVideo(url){
+
+  if(!url)
+    return;
+
+  window.open(
+    url,
+    "_blank",
+    "noopener,noreferrer"
+  );
+}
+
+
+/* =========================
+   الإعلانات للطلاب
+========================= */
 
 async function showAnnouncements(){
 
@@ -1868,7 +2382,7 @@ async function showAnnouncements(){
   await db
   .from("announcements")
   .select(
-    "title,body,created_at"
+    "id,title,body,created_at"
   )
   .order(
     "created_at",
@@ -1884,14 +2398,12 @@ async function showAnnouncements(){
     "<div class='empty'>تعذر تحميل الإعلانات.</div>";
 
   }
-
-  else if(!data.length){
+  else if(!data || !data.length){
 
     list.innerHTML =
     "<div class='empty'>لا توجد إعلانات حالياً.</div>";
 
   }
-
   else{
 
     list.innerHTML =
@@ -1917,6 +2429,10 @@ async function showAnnouncements(){
   showPage("announcementsPanel");
 }
 
+
+/* =========================
+   زر Enter للمطور
+========================= */
 
 document
 .getElementById("developerPassword")

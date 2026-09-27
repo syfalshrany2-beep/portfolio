@@ -3,203 +3,101 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>منصة الدكتورة أمنية أبو السعود | الصف الأول الثانوي</title>
+
+  <title>منصة الدكتورة أمنية أبو السعود</title>
 
   <style>
     * {
       box-sizing: border-box;
-    }
-
-    :root {
-      --pink: #d98fae;
-      --pink-dark: #b95f83;
-      --pink-soft: #fff1f6;
-      --gold: #c89b55;
-      --ink: #29212a;
-      --muted: #756b73;
-      --white: #ffffff;
-      --shadow: 0 20px 60px rgba(71,35,52,.14);
+      font-family: Arial, Tahoma, sans-serif;
     }
 
     body {
       margin: 0;
+      background: linear-gradient(135deg, #fff5f8, #f7f0ff);
+      color: #333;
       min-height: 100vh;
-      font-family: "Cairo", "Tahoma", "Arial", sans-serif;
-      color: var(--ink);
-
-      background:
-        radial-gradient(circle at 10% 10%, #ffeaf2 0, transparent 32%),
-        radial-gradient(circle at 90% 90%, #f8e6ef 0, transparent 30%),
-        linear-gradient(135deg,#fff 0%,#fff7fa 50%,#f9eef4 100%);
     }
 
-    .page {
-      min-height: 100vh;
+    .container {
+      width: 92%;
+      max-width: 700px;
+      margin: auto;
+      padding: 30px 0;
+    }
+
+    .header {
+      text-align: center;
+      padding: 20px;
+    }
+
+    .header h1 {
+      color: #7b3156;
+      margin-bottom: 10px;
+    }
+
+    .header p {
+      color: #777;
+    }
+
+    .profile {
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+      margin: 10px auto 20px;
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 28px 16px;
-    }
-
-    .card {
-      width: min(520px,100%);
-      background: rgba(255,255,255,.95);
-      border: 1px solid rgba(217,143,174,.25);
-      border-radius: 32px;
-      box-shadow: var(--shadow);
-      padding: 30px 22px 24px;
+      background: #ead5df;
+      color: #7b3156;
+      font-weight: bold;
       text-align: center;
-      overflow: hidden;
-      position: relative;
-    }
-
-    .card::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 7px;
-      background: linear-gradient(
-        90deg,
-        var(--pink-dark),
-        var(--gold),
-        var(--pink)
-      );
-    }
-
-    .badge {
-      display: inline-block;
-      margin-top: 6px;
-      margin-bottom: 14px;
-      padding: 7px 15px;
-      border-radius: 999px;
-      background: var(--pink-soft);
-      color: var(--pink-dark);
-      font-weight: 700;
-      font-size: 14px;
-    }
-
-    .portrait-wrap {
-      width: 185px;
-      height: 185px;
-      margin: 4px auto 20px;
-      border-radius: 50%;
-      padding: 7px;
-
-      background: linear-gradient(
-        145deg,
-        #f3c7d7,
-        #c47a9b,
-        #e7bd91
-      );
-
-      box-shadow: 0 12px 35px rgba(185,95,131,.25);
-    }
-
-    .portrait {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      border-radius: 50%;
-      display: block;
-      border: 4px solid white;
-    }
-
-    h1 {
-      font-size: 27px;
-      margin: 0 0 8px;
-      line-height: 1.45;
-    }
-
-    h1 span {
-      color: var(--pink-dark);
-    }
-
-    .welcome {
-      font-size: 17px;
-      line-height: 1.9;
-      color: var(--muted);
-      margin: 0 auto 22px;
-      max-width: 420px;
+      border: 5px solid white;
+      box-shadow: 0 5px 20px #0002;
     }
 
     .buttons {
-      display: grid;
+      display: flex;
+      flex-direction: column;
       gap: 12px;
+      margin-top: 20px;
     }
 
     .btn {
-      border: 0;
-      width: 100%;
-      min-height: 58px;
-      border-radius: 17px;
-      padding: 12px 18px;
-
-      font: 700 17px "Cairo", "Tahoma", sans-serif;
-
+      border: none;
+      border-radius: 14px;
+      padding: 15px;
+      font-size: 17px;
       cursor: pointer;
-      text-decoration: none;
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 9px;
-
-      transition: .2s ease;
-      box-shadow: 0 7px 18px rgba(71,35,52,.08);
+      color: white;
+      transition: .2s;
     }
 
     .btn:hover {
       transform: translateY(-2px);
-    }
-
-    .btn:active {
-      transform: translateY(0);
+      opacity: .92;
     }
 
     .facebook {
       background: #1877f2;
-      color: white;
     }
 
     .channel {
-      background: linear-gradient(135deg,#bd6f93,#d99bb4);
-      color: white;
+      background: #25a8e0;
     }
 
     .login {
-      background: linear-gradient(135deg,#8f526f,#b87592);
-      color: white;
+      background: #8d4770;
     }
 
     .developer {
-      background: linear-gradient(135deg,#29212a,#59434f);
-      color: white;
+      background: #333;
     }
 
     .back {
-      margin-top: 18px;
-      background: #f4e9ee;
-      color: var(--pink-dark);
-      box-shadow: none;
-    }
-
-    .status {
-      margin: 15px 0 0;
-      padding: 11px 14px;
-      border-radius: 14px;
-      background: #fff8eb;
-      color: #806334;
-      font-size: 13px;
-      line-height: 1.7;
-    }
-
-    .tiny {
-      font-size: 11px;
-      color: #9b9097;
-      margin-top: 17px;
-      line-height: 1.7;
+      background: #777;
+      margin-top: 15px;
+      width: 100%;
     }
 
     .internal {
@@ -210,569 +108,593 @@
       display: block;
     }
 
-    .home.hidden {
-      display: none;
-    }
-
-    .construction {
+    .box {
+      background: white;
+      border-radius: 20px;
+      padding: 25px;
+      box-shadow: 0 8px 30px #0001;
       margin-top: 20px;
-      padding: 34px 18px;
-      border-radius: 22px;
-      background: linear-gradient(135deg,#fff4f8,#fff);
-      border: 1px solid #efd6e0;
     }
 
-    .construction .icon {
-      font-size: 52px;
-      margin-bottom: 10px;
-    }
-
-    .construction h2 {
-      margin: 0 0 8px;
-      color: var(--pink-dark);
-      font-size: 26px;
-    }
-
-    .construction p {
-      margin: 0;
-      color: var(--muted);
-      line-height: 1.9;
-    }
-
-    .developer-box {
-      margin-top: 20px;
-      padding: 22px;
-      border-radius: 22px;
-      background: #fff8fb;
-      border: 1px solid #efd6e0;
-      text-align: right;
-    }
-
-    .developer-box h2 {
-      margin-top: 0;
-      color: var(--pink-dark);
+    .box h2 {
       text-align: center;
+      color: #7b3156;
     }
 
     .input {
       width: 100%;
       padding: 14px;
-      margin: 8px 0;
-      border: 1px solid #dfcbd4;
-      border-radius: 13px;
+      border: 1px solid #ddd;
+      border-radius: 12px;
+      margin: 7px 0;
+      font-size: 16px;
       outline: none;
-      font-family: inherit;
-      font-size: 15px;
     }
 
     .input:focus {
-      border-color: var(--pink);
-      box-shadow: 0 0 0 3px rgba(217,143,174,.15);
+      border-color: #8d4770;
     }
 
     .error {
-      color: #b52f4f;
-      font-size: 13px;
-      margin: 8px 0;
       display: none;
+      background: #ffe2e2;
+      color: #b00020;
+      padding: 10px;
+      border-radius: 10px;
+      margin: 10px 0;
+      text-align: center;
     }
 
-    .developer-panel {
+    .success {
       display: none;
-      text-align: right;
+      background: #e1f8e8;
+      color: #16743a;
+      padding: 10px;
+      border-radius: 10px;
+      margin: 10px 0;
+      text-align: center;
     }
 
-    .developer-panel.active {
-      display: block;
-    }
-
-    .dev-info {
-      background: white;
+    .card {
+      background: #faf7f9;
       border-radius: 15px;
       padding: 15px;
-      margin-top: 12px;
-      border: 1px solid #ead8df;
+      margin: 12px 0;
+      border-right: 5px solid #8d4770;
     }
 
-    @media(max-width:420px) {
-      .card {
-        padding: 27px 16px 20px;
-        border-radius: 25px;
-      }
+    .card h3 {
+      margin-top: 0;
+      color: #7b3156;
+    }
 
-      .portrait-wrap {
-        width: 160px;
-        height: 160px;
-      }
+    .small-btn {
+      border: none;
+      border-radius: 9px;
+      padding: 9px 13px;
+      margin: 4px;
+      cursor: pointer;
+      color: white;
+    }
 
-      h1 {
-        font-size: 23px;
-      }
+    .delete {
+      background: #c0392b;
+    }
 
-      .welcome {
-        font-size: 15px;
-      }
+    .dev-section {
+      background: #fff;
+      border-radius: 18px;
+      padding: 20px;
+      margin: 15px 0;
+      box-shadow: 0 4px 15px #0001;
+    }
 
-      .btn {
-        font-size: 16px;
-      }
+    .dev-section h3 {
+      color: #7b3156;
+      margin-top: 0;
+    }
+
+    .empty {
+      color: #888;
+      text-align: center;
+      padding: 10px;
+    }
+
+    .grade-row {
+      background: #f8f3f6;
+      padding: 12px;
+      border-radius: 12px;
+      margin: 8px 0;
     }
   </style>
 </head>
 
 <body>
 
-<main class="page">
+<div class="container">
 
-  <section class="card">
+  <!-- الرئيسية -->
+  <div id="home">
 
-    <!-- الصفحة الرئيسية -->
-    <div id="home" class="home">
+    <div class="header">
 
-      <div class="badge">
-        الصف الأول الثانوي
+      <div class="profile">
+        منصة<br>
+        الدكتورة<br>
+        أمنية
       </div>
 
-      <div class="portrait-wrap">
-        <img
-          class="portrait"
-          src="https://via.placeholder.com/400x400.png?text=منصة+الدكتورة+أمنية"
-          alt="منصة الدكتورة أمنية"
-        >
+      <h1>منصة الدكتورة أمنية أبو السعود</h1>
+
+      <p>
+        مادة الفلسفة — الصف الأول الثانوي
+      </p>
+
+    </div>
+
+    <div class="buttons">
+
+      <button
+        class="btn facebook"
+        onclick="window.open('https://www.facebook.com/share/1EDciB8TL3/','_blank')">
+        📘 Facebook
+      </button>
+
+      <button
+        class="btn channel"
+        onclick="window.open('https://whatsapp.com/channel/0029VbDAG616BIEmAcp9sg2O','_blank')">
+        💬 قناة WhatsApp
+      </button>
+
+      <button
+        class="btn login"
+        onclick="openStudentLogin()">
+        🎓 دخول الطلاب
+      </button>
+
+      <button
+        class="btn developer"
+        onclick="openDeveloper()">
+        🛠️ قسم المطور
+      </button>
+
+    </div>
+
+  </div>
+
+
+  <!-- تسجيل دخول الطالب -->
+  <div id="studentLogin" class="internal">
+
+    <div class="box">
+
+      <h2>🎓 تسجيل دخول الطالب</h2>
+
+      <input
+        id="studentName"
+        class="input"
+        type="text"
+        placeholder="اسم الطالب">
+
+      <input
+        id="studentCode"
+        class="input"
+        type="text"
+        placeholder="الكود الخاص بالطالب">
+
+      <div id="studentError" class="error">
+        ❌ الاسم أو الكود غير صحيح
       </div>
 
-      <h1>
-        منصة <span>الدكتورة أمنية أبو السعود</span>
-      </h1>
+      <button
+        class="btn login"
+        onclick="studentLogin()">
+        🔓 دخول
+      </button>
 
-      <p class="welcome">
-        أهلاً وسهلاً بكم في المنصة التعليمية للصف الأول الثانوي 🌸
-        <br>
-        نتمنى لكم التوفيق والنجاح دائماً.
+      <button
+        class="btn back"
+        onclick="goHome()">
+        ↩️ العودة
+      </button>
+
+    </div>
+
+  </div>
+
+
+  <!-- صفحة الطالب -->
+  <div id="studentPanel" class="internal">
+
+    <div class="box">
+
+      <h2>
+        🎓 أهلاً يا
+        <span id="studentWelcome"></span>
+      </h2>
+
+      <p style="text-align:center;color:#777;">
+        دي صفحتك الخاصة على منصة الدكتورة أمنية ❤️
       </p>
 
       <div class="buttons">
 
-        <a
-          class="btn facebook"
-          href="https://www.facebook.com/share/1EDciB8TL3/"
-          target="_blank"
-          rel="noopener"
-        >
-          📘 صفحة Facebook
-        </a>
-
-        <a
-          class="btn channel"
-          href="https://whatsapp.com/channel/0029VbDAG616BIEmAcp9sg2O"
-          target="_blank"
-          rel="noopener"
-        >
-          💬 قناة WhatsApp
-        </a>
+        <button class="btn login">
+          📚 الدروس
+        </button>
 
         <button
-          class="btn login"
-          onclick="openStudentLogin()"
-        >
-          🎓 دخول الطلاب
+          class="btn channel"
+          onclick="showStudentHomework()">
+          📝 الواجبات
+        </button>
+
+        <button
+          class="btn facebook"
+          onclick="showStudentGrades()">
+          📊 الدرجات
         </button>
 
         <button
           class="btn developer"
-          onclick="openDeveloper()"
-        >
-          👨‍💻 قسم المطور
+          onclick="showStudentAnnouncements()">
+          📢 الإعلانات
         </button>
 
       </div>
 
-      <div class="status">
-        📌 ملاحظة تقنية:
-        الموقع يعمل باستخدام HTML وCSS وJavaScript.
-        التحقق الحقيقي من اشتراك الطالب في Facebook أو WhatsApp
-        يحتاج إلى نظام خلفي أو خدمة API، ولا يمكن لـ HTML وحده القيام بذلك.
-      </div>
-
-      <div class="tiny">
-        منصة تعليمية للصف الأول الثانوي
-      </div>
+      <button
+        class="btn back"
+        onclick="goHome()">
+        🚪 تسجيل الخروج
+      </button>
 
     </div>
-
-
-    <!-- تسجيل دخول الطلاب -->
-<div id="studentLogin" class="internal">
-
-  <div class="developer-box">
-
-    <h2>🎓 تسجيل دخول الطالب</h2>
-
-    <p style="text-align:center;color:#756b73;">
-      اكتب اسمك وكود الطالب للدخول.
-    </p>
-
-    <input
-      id="studentName"
-      class="input"
-      type="text"
-      placeholder="اسم الطالب"
-    >
-
-    <input
-      id="studentCode"
-      class="input"
-      type="text"
-      inputmode="numeric"
-      placeholder="كود الطالب"
-    >
-
-    <div id="studentError" class="error">
-      ❌ الاسم أو الكود غير صحيح.
-    </div>
-
-    <button
-      class="btn login"
-      onclick="studentLogin()"
-    >
-      🚀 دخول
-    </button>
-
-    <button
-      class="btn back"
-      onclick="goHome()"
-    >
-      ↩️ العودة للرئيسية
-    </button>
 
   </div>
 
-</div>
 
-<!-- صفحة الطالب -->
-<div id="studentPanel" class="internal">
+  <!-- درجات الطالب -->
+  <div id="gradesPanel" class="internal">
 
-  <div class="developer-box">
+    <div class="box">
 
-    <h2>🎓 أهلاً يا <span id="studentWelcome"></span></h2>
+      <h2>📊 الدرجات</h2>
 
-    <p style="text-align:center;color:#756b73;">
-      دي صفحتك الخاصة على منصة الدكتورة أمنية ❤️
-    </p>
+      <div id="studentGradesList"></div>
 
-    <div class="buttons">
-
-      <button class="btn login">
-        📚 الدروس
+      <button
+        class="btn back"
+        onclick="openStudentPanel()">
+        ↩️ العودة
       </button>
 
-      <button class="btn channel">
-        📝 الواجبات
+    </div>
+
+  </div>
+
+
+  <!-- واجبات الطالب -->
+  <div id="homeworkPanel" class="internal">
+
+    <div class="box">
+
+      <h2>📝 الواجبات</h2>
+
+      <div id="studentHomeworkList"></div>
+
+      <button
+        class="btn back"
+        onclick="openStudentPanel()">
+        ↩️ العودة
+      </button>
+
+    </div>
+
+  </div>
+
+
+  <!-- إعلانات الطالب -->
+  <div id="announcementsPanel" class="internal">
+
+    <div class="box">
+
+      <h2>📢 الإعلانات</h2>
+
+      <div id="studentAnnouncementsList"></div>
+
+      <button
+        class="btn back"
+        onclick="openStudentPanel()">
+        ↩️ العودة
+      </button>
+
+    </div>
+
+  </div>
+
+
+  <!-- قسم المطور -->
+  <div id="developer" class="internal">
+
+    <!-- تسجيل دخول المطور -->
+    <div id="developerLoginBox" class="box">
+
+      <h2>🔐 قسم المطور</h2>
+
+      <p style="text-align:center;color:#777;">
+        هذا القسم مخصص للمطور فقط.
+      </p>
+
+      <input
+        id="developerPassword"
+        class="input"
+        type="password"
+        placeholder="اكتب كلمة المرور">
+
+      <div id="passwordError" class="error">
+        ❌ كلمة المرور غير صحيحة
+      </div>
+
+      <button
+        class="btn developer"
+        onclick="checkDeveloperPassword()">
+        🔓 دخول
       </button>
 
       <button
-  class="btn facebook"
-  onclick="openGrades()"
->
-  📊 الدرجات
-      </button>
-
-      <button class="btn developer">
-        📢 الإعلانات
+        class="btn back"
+        onclick="goHome()">
+        ↩️ العودة
       </button>
 
     </div>
 
-    <button
-      class="btn back"
-      onclick="goHome()"
-    >
-      🚪 تسجيل الخروج
-    </button>
 
-  </div>
+    <!-- لوحة المطور -->
+    <div id="developerPanel" class="internal">
 
-</div>
- <!-- صفحة الدرجات -->
-<div id="gradesPanel" class="internal">
+      <div class="box">
 
-  <div class="developer-box">
+        <h2>🛠️ لوحة المطور</h2>
 
-    <h2>📊 درجات سما</h2>
-
-    <p style="text-align:center;color:#756b73;">
-      درجات مادة الفلسفة — الصف الأول الثانوي
-    </p>
-
-    <div class="dev-info">
-      <strong>📝 اختبار</strong>
-      <br>
-      الدرجة: 18 / 20
-    </div>
-
-    <div class="dev-info">
-      <strong>📚 واجب</strong>
-      <br>
-      الدرجة: 9 / 10
-    </div>
-
-    <div class="dev-info">
-      <strong>📊 التقييم الحالي</strong>
-      <br>
-      27 / 30
-    </div>
-
-    <button
-      class="btn back"
-      onclick="openStudentPanel()"
-    >
-      ↩️ العودة لصفحة الطالب
-    </button>
-
-  </div>
-
-</div>
-    <!-- قسم المطور -->
-    <div id="developer" class="internal">
-
-      <div class="developer-box">
-
-        <h2>
-          🔐 قسم المطور
-        </h2>
-
-        <p style="text-align:center;color:#756b73;">
-          هذا القسم مخصص للمطور فقط.
+        <p style="text-align:center;color:#777;">
+          إدارة منصة الدكتورة أمنية
         </p>
 
-        <input
-          id="developerPassword"
-          class="input"
-          type="password"
-          placeholder="اكتب كلمة المرور"
-        >
 
-        <div id="passwordError" class="error">
-          ❌ كلمة المرور غير صحيحة
-        </div>
+        <!-- إضافة طالب -->
+        <div class="dev-section">
 
-        <button
-          class="btn developer"
-          onclick="checkDeveloperPassword()"
-        >
-          🔓 دخول
-        </button>
-
-        <button
-          class="btn back"
-          onclick="goHome()"
-        >
-          ↩️ العودة
-        </button>
-
-      </div>
-
-
-      <!-- لوحة المطور -->
-      <div
-        id="developerPanel"
-        class="developer-panel"
-      >
-
-        <div class="developer-box">
-
-          <h2>
-            🛠️ لوحة المطور
-          </h2>
+          <h3>👨‍🎓 إضافة طالب</h3>
 
           <input
+            id="newStudentName"
             class="input"
             type="text"
-            placeholder="اسم المطور"
-          >
+            placeholder="اسم الطالب">
 
-          <textarea
+          <input
+            id="newStudentCode"
             class="input"
-            rows="5"
-            placeholder="ملاحظات المطور"
-          ></textarea>
-
-          <div class="dev-info">
-            <strong>حالة النظام:</strong>
-            <br>
-            🟢 الموقع يعمل بشكل طبيعي.
-          </div>
-
-          <div class="dev-info">
-            <strong>ملاحظة أمنية:</strong>
-            <br>
-            كلمة مرور هذا القسم موجودة داخل JavaScript،
-            لذلك فهي حماية واجهة فقط وليست نظام مصادقة آمناً.
-          </div>
+            type="text"
+            placeholder="الكود الخاص بالطالب">
 
           <button
-            class="btn back"
-            onclick="goHome()"
-          >
-            ↩️ العودة للرئيسية
+            class="btn login"
+            onclick="addStudent()">
+            ➕ إضافة الطالب
+          </button>
+
+          <div id="studentSuccess" class="success">
+            ✅ تم إضافة الطالب بنجاح
+          </div>
+
+        </div>
+
+
+        <!-- الطلاب -->
+        <div class="dev-section">
+
+          <h3>👥 الطلاب المسجلين</h3>
+
+          <div id="studentsList"></div>
+
+        </div>
+
+
+        <!-- إضافة درجة -->
+        <div class="dev-section">
+
+          <h3>📊 إضافة درجة</h3>
+
+          <select id="gradeStudent" class="input">
+          </select>
+
+          <input
+            id="gradeName"
+            class="input"
+            type="text"
+            placeholder="اسم الاختبار أو الواجب">
+
+          <input
+            id="gradeValue"
+            class="input"
+            type="number"
+            placeholder="الدرجة">
+
+          <input
+            id="gradeMax"
+            class="input"
+            type="number"
+            placeholder="من كام؟">
+
+          <button
+            class="btn login"
+            onclick="addGrade()">
+            ➕ إضافة الدرجة
           </button>
 
         </div>
 
+
+        <!-- إضافة تقييم -->
+        <div class="dev-section">
+
+          <h3>⭐ إضافة تقييم</h3>
+
+          <select id="evaluationStudent" class="input">
+          </select>
+
+          <input
+            id="evaluationText"
+            class="input"
+            type="text"
+            placeholder="التقييم">
+
+          <button
+            class="btn login"
+            onclick="addEvaluation()">
+            ⭐ إضافة التقييم
+          </button>
+
+        </div>
+
+
+        <!-- إضافة واجب -->
+        <div class="dev-section">
+
+          <h3>📝 إضافة واجب</h3>
+
+          <input
+            id="homeworkTitle"
+            class="input"
+            type="text"
+            placeholder="اسم الواجب">
+
+          <input
+            id="homeworkDescription"
+            class="input"
+            type="text"
+            placeholder="وصف الواجب">
+
+          <input
+            id="homeworkDate"
+            class="input"
+            type="date">
+
+          <button
+            class="btn login"
+            onclick="addHomework()">
+            ➕ إضافة الواجب
+          </button>
+
+        </div>
+
+
+        <!-- إضافة إعلان -->
+        <div class="dev-section">
+
+          <h3>📢 إضافة إعلان</h3>
+
+          <input
+            id="announcementTitle"
+            class="input"
+            type="text"
+            placeholder="عنوان الإعلان">
+
+          <input
+            id="announcementText"
+            class="input"
+            type="text"
+            placeholder="نص الإعلان">
+
+          <button
+            class="btn login"
+            onclick="addAnnouncement()">
+            📢 نشر الإعلان
+          </button>
+
+        </div>
+
+
+        <div class="dev-section">
+
+          <strong>🟢 حالة النظام</strong>
+
+          <p>
+            الموقع يعمل بشكل طبيعي.
+          </p>
+
+          <p style="color:#b00020;">
+            ⚠️ البيانات الحالية محفوظة في المتصفح فقط.
+          </p>
+
+        </div>
+
+
+        <button
+          class="btn back"
+          onclick="goHome()">
+          ↩️ العودة للرئيسية
+        </button>
+
       </div>
 
     </div>
 
-  </section>
+  </div>
 
-</main>
+</div>
 
 
 <script>
 
-  /* كلمة مرور قسم المطور */
-const DEVELOPER_PASSWORD = "OOB XX";
-
-/* بيانات الطلاب */
-const students = [
-  {
-    name: "سما السيد محمد",
-    code: "6646"
-  }
-];
+  const DEVELOPER_PASSWORD = "OOB XX";
 
 
-  /* فتح تسجيل دخول الطلاب */
-  function openStudentLogin() {
+  /* =========================
+     بيانات الطلاب
+  ========================= */
 
-    document.getElementById("home").classList.add("hidden");
-
-    document.getElementById("studentLogin")
-      .classList.add("active");
-
-  }
-/* تسجيل دخول الطالب */
-function studentLogin() {
-
-  const name = document
-    .getElementById("studentName")
-    .value
-    .trim();
-
-  const code = document
-    .getElementById("studentCode")
-    .value
-    .trim();
-
-  const error = document
-    .getElementById("studentError");
-
-  const student = students.find(function(item) {
-    return item.name === name && item.code === code;
-  });
-
-  if (!student) {
-
-    error.style.display = "block";
-    return;
-
-  }
-
-  error.style.display = "none";
-
-  document.getElementById("studentLogin")
-  .classList.remove("active");
-
-document.getElementById("studentPanel")
-  .classList.add("active");
-
-document.getElementById("studentWelcome")
-  .textContent = student.name;
-  }
-function openGrades() {
-
-  document.getElementById("studentPanel")
-    .classList.remove("active");
-
-  document.getElementById("gradesPanel")
-    .classList.add("active");
-
-}
-  /* فتح قسم المطور */
-  function openDeveloper() {
-
-    document.getElementById("home")
-      .classList.add("hidden");
-
-    document.getElementById("developer")
-      .classList.add("active");
-
-    document.getElementById("developerPanel")
-      .classList.remove("active");
-
-    document.getElementById("passwordError")
-      .style.display = "none";
-
-    document.getElementById("developerPassword")
-      .value = "";
-
-  }
-
-
-  /* التحقق من كلمة المرور */
-  function checkDeveloperPassword() {
-
-    const password =
-      document.getElementById("developerPassword").value;
-
-    if (password === DEVELOPER_PASSWORD) {
-
-      document.getElementById("passwordError")
-        .style.display = "none";
-
-      document.getElementById("developerPanel")
-        .classList.add("active");
-
-    } else {
-
-      document.getElementById("passwordError")
-        .style.display = "block";
-
+  let students = JSON.parse(
+    localStorage.getItem("students")
+  ) || [
+    {
+      name: "سما السيد محمد",
+      code: "6646"
     }
-
-  }
-
-
-  /* العودة للرئيسية */
-  function goHome() {
-
-    document.getElementById("home")
-      .classList.remove("hidden");
-
-    document.getElementById("studentLogin")
-      .classList.remove("active");
-
-    document.getElementById("developer")
-      .classList.remove("active");
-
-    document.getElementById("developerPanel")
-      .classList.remove("active");
-
-  }
+  ];
 
 
-  /* الضغط على Enter في خانة الباسورد */
-  document
-    .getElementById("developerPassword")
-    .addEventListener("keydown", function(event) {
+  let grades = JSON.parse(
+    localStorage.getItem("grades")
+  ) || [];
 
-      if (event.key === "Enter") {
-        checkDeveloperPassword();
-      }
 
-    });
+  let evaluations = JSON.parse(
+    localStorage.getItem("evaluations")
+  ) || [];
 
-</script>
 
-</body>
-                                  </html>
+  let homework = JSON.parse(
+    localStorage.getItem("homework")
+  ) || [];
+
+
+  let announcements = JSON.parse(
+    localStorage.getItem("announcements")
+  ) || [];
+
+
+  let currentStudent = null;
+
+
+  /* =========================
+     حفظ البيانات
+  ========================= */
+
+  function saveData() {
+
+    localStorage.setItem(
+     

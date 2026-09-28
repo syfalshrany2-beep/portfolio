@@ -8,328 +8,1192 @@
 
 <style>
 *{box-sizing:border-box;font-family:Arial,Tahoma,sans-serif}
-body{margin:0;min-height:100vh;background:linear-gradient(135deg,#fff5f8,#f7f0ff);color:#333}
-.container{width:92%;max-width:700px;margin:auto;padding:30px 0}
-.header{text-align:center;padding:20px}
-.header h1{color:#7b3156;margin-bottom:10px}
-.header p{color:#777}
-.profile{width:130px;height:130px;border-radius:50%;margin:10px auto 20px;display:block;object-fit:cover;background:#ead5df;border:5px solid white;box-shadow:0 5px 20px #0002}
-.buttons{display:flex;flex-direction:column;gap:12px;margin-top:20px}
-.btn{border:0;border-radius:14px;padding:15px;font-size:17px;cursor:pointer;color:white;transition:.2s}
-.btn:hover{transform:translateY(-2px);opacity:.92}
-.facebook{background:#1877f2}.channel{background:#25a8e0}.login{background:#8d4770}.developer{background:#333}
+
+body{
+  margin:0;
+  min-height:100vh;
+  background:linear-gradient(135deg,#fff5f8,#f7f0ff);
+  color:#333
+}
+
+.container{
+  width:92%;
+  max-width:700px;
+  margin:auto;
+  padding:30px 0
+}
+
+.header{
+  text-align:center;
+  padding:20px
+}
+
+.header h1{
+  color:#7b3156;
+  margin-bottom:10px
+}
+
+.header p{
+  color:#777
+}
+
+.profile{
+  width:130px;
+  height:130px;
+  border-radius:50%;
+  margin:10px auto 20px;
+  display:block;
+  object-fit:cover;
+  background:#ead5df;
+  border:5px solid white;
+  box-shadow:0 5px 20px #0002
+}
+
+.buttons{
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+  margin-top:20px
+}
+
+.btn{
+  border:0;
+  border-radius:14px;
+  padding:15px;
+  font-size:17px;
+  cursor:pointer;
+  color:white;
+  transition:.2s
+}
+
+.btn:hover{
+  transform:translateY(-2px);
+  opacity:.92
+}
+
+.facebook{background:#1877f2}
+.channel{background:#25a8e0}
+.login{background:#8d4770}
+.developer{background:#333}
 .back{background:#777;margin-top:15px;width:100%}
-.page{display:none}.page.active{display:block}
-.box{background:white;border-radius:20px;padding:25px;box-shadow:0 8px 30px #0001;margin-top:20px}
-.box h2{text-align:center;color:#7b3156}
-.input{width:100%;padding:14px;border:1px solid #ddd;border-radius:12px;margin:7px 0;font-size:16px;outline:none}
-.input:focus{border-color:#8d4770}
-.error{display:none;background:#ffe2e2;color:#b00020;padding:10px;border-radius:10px;margin:10px 0;text-align:center}
-.success{display:none;background:#e1f8e8;color:#16743a;padding:10px;border-radius:10px;margin:10px 0;text-align:center}
-.dev-section{background:#fff;border-radius:18px;padding:20px;margin:15px 0;box-shadow:0 4px 15px #0001}
-.dev-section h3{color:#7b3156;margin-top:0}
-.card{background:#faf7f9;border-radius:15px;padding:15px;margin:12px 0;border-right:5px solid #8d4770}
-.card h3{margin-top:0;color:#7b3156}
-.small-btn{border:0;border-radius:9px;padding:9px 13px;margin:4px;cursor:pointer;color:white}
-.delete{background:#c0392b}.empty{color:#888;text-align:center;padding:10px}
-.grade-row{background:#f8f3f6;padding:12px;border-radius:12px;margin:8px 0}
-.status{font-size:14px;color:#777;text-align:center;margin-top:10px}
-hr{border:0;border-top:1px solid #eee;margin:20px 0}
-.exam-option{display:block;background:#fff;border:1px solid #ddd;border-radius:12px;padding:13px;margin:8px 0;cursor:pointer}
-.exam-option:hover{background:#f8f3f6}
-.exam-question{background:#faf7f9;border-radius:15px;padding:15px;margin:15px 0}
-.timer{font-size:25px;font-weight:bold;text-align:center;background:#fff0f0;color:#b00020;padding:12px;border-radius:12px;margin:15px 0}
-.exam-status{display:inline-block;padding:6px 10px;border-radius:8px;background:#eee;font-size:13px}
+
+.page{display:none}
+.page.active{display:block}
+
+.box{
+  background:white;
+  border-radius:20px;
+  padding:25px;
+  box-shadow:0 8px 30px #0001;
+  margin-top:20px
+}
+
+.box h2{
+  text-align:center;
+  color:#7b3156
+}
+
+.input{
+  width:100%;
+  padding:14px;
+  border:1px solid #ddd;
+  border-radius:12px;
+  margin:7px 0;
+  font-size:16px;
+  outline:none
+}
+
+.input:focus{
+  border-color:#8d4770
+}
+
+.error{
+  display:none;
+  background:#ffe2e2;
+  color:#b00020;
+  padding:10px;
+  border-radius:10px;
+  margin:10px 0;
+  text-align:center
+}
+
+.success{
+  display:none;
+  background:#e1f8e8;
+  color:#16743a;
+  padding:10px;
+  border-radius:10px;
+  margin:10px 0;
+  text-align:center
+}
+
+.dev-section{
+  background:#fff;
+  border-radius:18px;
+  padding:20px;
+  margin:15px 0;
+  box-shadow:0 4px 15px #0001
+}
+
+.dev-section h3{
+  color:#7b3156;
+  margin-top:0
+}
+
+.card{
+  background:#faf7f9;
+  border-radius:15px;
+  padding:15px;
+  margin:12px 0;
+  border-right:5px solid #8d4770
+}
+
+.card h3{
+  margin-top:0;
+  color:#7b3156
+}
+
+.small-btn{
+  border:0;
+  border-radius:9px;
+  padding:9px 13px;
+  margin:4px;
+  cursor:pointer;
+  color:white
+}
+
+.delete{
+  background:#c0392b
+}
+
+.empty{
+  color:#888;
+  text-align:center;
+  padding:10px
+}
+
+.grade-row{
+  background:#f8f3f6;
+  padding:12px;
+  border-radius:12px;
+  margin:8px 0
+}
+
+.status{
+  font-size:14px;
+  color:#777;
+  text-align:center;
+  margin-top:10px
+}
+
+hr{
+  border:0;
+  border-top:1px solid #eee;
+  margin:20px 0
+}
+
+.exam-option{
+  display:block;
+  background:#fff;
+  border:1px solid #ddd;
+  border-radius:12px;
+  padding:13px;
+  margin:8px 0;
+  cursor:pointer
+}
+
+.exam-option:hover{
+  background:#f8f3f6
+}
+
+.exam-question{
+  background:#faf7f9;
+  border-radius:15px;
+  padding:15px;
+  margin:15px 0
+}
+
+.timer{
+  font-size:25px;
+  font-weight:bold;
+  text-align:center;
+  background:#fff0f0;
+  color:#b00020;
+  padding:12px;
+  border-radius:12px;
+  margin:15px 0
+}
+
+.exam-status{
+  display:inline-block;
+  padding:6px 10px;
+  border-radius:8px;
+  background:#eee;
+  font-size:13px
+}
+
+/* تقرير الطالب */
+
+.report-search-box{
+  background:linear-gradient(135deg,#fff5f8,#f7f0ff);
+  border-radius:15px;
+  padding:15px;
+  margin-bottom:15px
+}
+
+.report-summary{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:10px;
+  margin:15px 0
+}
+
+.report-stat{
+  background:#faf7f9;
+  border-radius:14px;
+  padding:15px;
+  text-align:center;
+  border-right:4px solid #8d4770
+}
+
+.report-stat strong{
+  display:block;
+  font-size:22px;
+  color:#7b3156;
+  margin-top:5px
+}
+
+.report-student{
+  background:#f8f3f6;
+  border-radius:15px;
+  padding:18px;
+  margin:15px 0
+}
+
+.report-student h3{
+  margin-top:0;
+  color:#7b3156
+}
+
+.report-section{
+  margin-top:20px
+}
+
+.report-section-title{
+  background:#7b3156;
+  color:white;
+  padding:12px;
+  border-radius:12px;
+  margin-bottom:10px;
+  font-size:17px
+}
+
+.report-item{
+  background:#fafafa;
+  border:1px solid #eee;
+  border-radius:12px;
+  padding:13px;
+  margin:8px 0
+}
+
+.report-item.success-item{
+  border-right:5px solid #27ae60
+}
+
+.report-item.warning-item{
+  border-right:5px solid #f39c12
+}
+
+.report-item.danger-item{
+  border-right:5px solid #c0392b
+}
+
+.report-muted{
+  color:#888;
+  font-size:13px
+}
+
+.report-score{
+  font-size:18px;
+  font-weight:bold;
+  color:#7b3156
+}
+
+.report-status{
+  display:inline-block;
+  padding:5px 9px;
+  border-radius:8px;
+  background:#eee;
+  font-size:12px
+}
+
+@media(max-width:500px){
+  .report-summary{
+    grid-template-columns:1fr 1fr
+  }
+}
 </style>
 </head>
 
 <body>
+
 <div class="container">
 
 <!-- الرئيسية -->
 <div id="home" class="page active">
+
 <div class="header">
-<img class="profile" src="logo.png" alt="شعار منصة الدكتورة أمنية">
+
+<img
+  class="profile"
+  src="logo.png"
+  alt="شعار منصة الدكتورة أمنية"
+>
+
 <h1>منصة الدكتورة أمنية أبو السعود</h1>
+
 <p>مادة الفلسفة — الصف الأول الثانوي</p>
+
 </div>
 
 <div class="buttons">
-<button class="btn facebook" onclick="window.open('https://www.facebook.com/share/1EDciB8TL3/','_blank')">📘 Facebook</button>
-<button class="btn channel" onclick="window.open('https://whatsapp.com/channel/0029VbDAG616BIEmAcp9sg2O','_blank')">💬 قناة WhatsApp</button>
-<button class="btn login" onclick="showPage('studentLogin')">🎓 تسجيل دخول الطلاب</button>
-<button class="btn developer" onclick="showDeveloperLogin()">🛠️ قسم المطور</button>
+
+<button
+  class="btn facebook"
+  onclick="window.open('https://www.facebook.com/share/1EDciB8TL3/','_blank')"
+>
+📘 Facebook
+</button>
+
+<button
+  class="btn channel"
+  onclick="window.open('https://whatsapp.com/channel/0029VbDAG616BIEmAcp9sg2O','_blank')"
+>
+💬 قناة WhatsApp
+</button>
+
+<button
+  class="btn login"
+  onclick="showPage('studentLogin')"
+>
+🎓 تسجيل دخول الطلاب
+</button>
+
+<button
+  class="btn developer"
+  onclick="showDeveloperLogin()"
+>
+🛠️ قسم المطور
+</button>
+
 </div>
 </div>
+
 
 <!-- تسجيل الطالب -->
 <div id="studentLogin" class="page">
+
 <div class="box">
+
 <h2>🎓 تسجيل دخول الطالب</h2>
-<input id="studentName" class="input" type="text" placeholder="اسم الطالب">
-<input id="studentCode" class="input" type="text" placeholder="الكود الخاص بالطالب">
-<div id="studentError" class="error">❌ الاسم أو الكود غير صحيح</div>
-<button class="btn login" onclick="studentLogin()">🔓 دخول</button>
-<button class="btn back" onclick="goHome()">↩️ العودة للرئيسية</button>
+
+<input
+  id="studentName"
+  class="input"
+  type="text"
+  placeholder="اسم الطالب"
+>
+
+<input
+  id="studentCode"
+  class="input"
+  type="text"
+  placeholder="الكود الخاص بالطالب"
+>
+
+<div id="studentError" class="error">
+❌ الاسم أو الكود غير صحيح
+</div>
+
+<button
+  class="btn login"
+  onclick="studentLogin()"
+>
+🔓 دخول
+</button>
+
+<button
+  class="btn back"
+  onclick="goHome()"
+>
+↩️ العودة للرئيسية
+</button>
+
 <div id="studentStatus" class="status"></div>
+
 </div>
 </div>
+
 
 <!-- لوحة الطالب -->
 <div id="studentPanel" class="page">
+
 <div class="box">
-<h2>🎓 أهلاً يا <span id="studentWelcome"></span></h2>
-<p style="text-align:center;color:#777;">دي صفحتك الخاصة على منصة الدكتورة أمنية ❤️</p>
+
+<h2>
+🎓 أهلاً يا
+<span id="studentWelcome"></span>
+</h2>
+
+<p style="text-align:center;color:#777;">
+دي صفحتك الخاصة على منصة الدكتورة أمنية ❤️
+</p>
 
 <div class="buttons">
-<button class="btn login" onclick="showLessons()">📚 الدروس</button>
-<button class="btn channel" onclick="showHomework()">📝 الواجبات</button>
-<button class="btn facebook" onclick="showGrades()">📊 الدرجات</button>
-<button class="btn developer" onclick="showAnnouncements()">📢 الإعلانات</button>
-<button class="btn login" onclick="showStudentExams()">🧠 الامتحان على المحاضرة</button>
+
+<button
+  class="btn login"
+  onclick="showLessons()"
+>
+📚 الدروس
+</button>
+
+<button
+  class="btn channel"
+  onclick="showHomework()"
+>
+📝 الواجبات
+</button>
+
+<button
+  class="btn facebook"
+  onclick="showGrades()"
+>
+📊 الدرجات
+</button>
+
+<button
+  class="btn developer"
+  onclick="showAnnouncements()"
+>
+📢 الإعلانات
+</button>
+
+<button
+  class="btn login"
+  onclick="showStudentExams()"
+>
+🧠 الامتحان على المحاضرة
+</button>
+
 </div>
 
-<button class="btn back" onclick="goHome()">🚪 تسجيل الخروج</button>
+<button
+  class="btn back"
+  onclick="goHome()"
+>
+🚪 تسجيل الخروج
+</button>
+
 </div>
 </div>
+
 
 <!-- امتحانات الطالب -->
 <div id="studentExamsPanel" class="page">
+
 <div class="box">
+
 <h2>🧠 الامتحان على المحاضرة</h2>
-<div id="studentExamsList">⏳ جاري تحميل الامتحانات...</div>
-<button class="btn back" onclick="showPage('studentPanel')">↩️ العودة</button>
+
+<div id="studentExamsList">
+⏳ جاري تحميل الامتحانات...
+</div>
+
+<button
+  class="btn back"
+  onclick="showPage('studentPanel')"
+>
+↩️ العودة
+</button>
+
 </div>
 </div>
+
 
 <!-- شاشة الامتحان -->
 <div id="takeExamPanel" class="page">
+
 <div class="box">
-<h2 id="examTitle">الامتحان</h2>
-<div id="examTimer" class="timer">⏱️ 00:00</div>
+
+<h2 id="examTitle">
+الامتحان
+</h2>
+
+<div id="examTimer" class="timer">
+⏱️ 00:00
+</div>
+
 <div id="examQuestionsList"></div>
-<button id="submitExamBtn" class="btn login" style="width:100%;margin-top:15px" onclick="submitCurrentExam()">✅ تسليم الامتحان</button>
-<div id="examResultBox" class="success"></div>
+
+<button
+  id="submitExamBtn"
+  class="btn login"
+  style="width:100%;margin-top:15px"
+  onclick="submitCurrentExam()"
+>
+✅ تسليم الامتحان
+</button>
+
+<div
+  id="examResultBox"
+  class="success"
+></div>
+
 </div>
 </div>
+
 
 <!-- الدروس -->
 <div id="lessonsPanel" class="page">
+
 <div class="box">
+
 <h2>📚 الدروس</h2>
-<div id="lessonsList">⏳ جاري تحميل الدروس...</div>
-<button class="btn back" onclick="showPage('studentPanel')">↩️ العودة</button>
+
+<div id="lessonsList">
+⏳ جاري تحميل الدروس...
+</div>
+
+<button
+  class="btn back"
+  onclick="showPage('studentPanel')"
+>
+↩️ العودة
+</button>
+
 </div>
 </div>
+
 
 <!-- الدرجات -->
 <div id="gradesPanel" class="page">
+
 <div class="box">
+
 <h2>📊 درجاتي</h2>
+
 <div id="gradesList"></div>
-<button class="btn back" onclick="showPage('studentPanel')">↩️ العودة</button>
+
+<button
+  class="btn back"
+  onclick="showPage('studentPanel')"
+>
+↩️ العودة
+</button>
+
 </div>
 </div>
+
 
 <!-- الواجبات -->
 <div id="homeworkPanel" class="page">
+
 <div class="box">
+
 <h2>📝 الواجبات</h2>
+
 <div id="homeworkList"></div>
-<button class="btn back" onclick="showPage('studentPanel')">↩️ العودة</button>
+
+<button
+  class="btn back"
+  onclick="showPage('studentPanel')"
+>
+↩️ العودة
+</button>
+
 </div>
 </div>
+
 
 <!-- الإعلانات -->
 <div id="announcementsPanel" class="page">
+
 <div class="box">
+
 <h2>📢 الإعلانات</h2>
+
 <div id="announcementsList"></div>
-<button class="btn back" onclick="showPage('studentPanel')">↩️ العودة</button>
+
+<button
+  class="btn back"
+  onclick="showPage('studentPanel')"
+>
+↩️ العودة
+</button>
+
 </div>
 </div>
+
 
 <!-- دخول المطور -->
 <div id="developerLogin" class="page">
+
 <div class="box">
+
 <h2>🔐 قسم المطور</h2>
-<p style="text-align:center;color:#777;">هذا القسم مخصص للمطور فقط.</p>
-<input id="developerEmail" class="input" type="email" placeholder="البريد الإلكتروني للمطور">
-<input id="developerPassword" class="input" type="password" placeholder="كلمة مرور Supabase">
-<div id="passwordError" class="error">❌ بيانات الدخول غير صحيحة</div>
-<button class="btn developer" onclick="checkDeveloperPassword()">🔓 دخول</button>
-<button class="btn back" onclick="goHome()">↩️ العودة للرئيسية</button>
+
+<p style="text-align:center;color:#777;">
+هذا القسم مخصص للمطور فقط.
+</p>
+
+<input
+  id="developerEmail"
+  class="input"
+  type="email"
+  placeholder="البريد الإلكتروني للمطور"
+>
+
+<input
+  id="developerPassword"
+  class="input"
+  type="password"
+  placeholder="كلمة مرور Supabase"
+>
+
+<div id="passwordError" class="error">
+❌ بيانات الدخول غير صحيحة
+</div>
+
+<button
+  class="btn developer"
+  onclick="checkDeveloperPassword()"
+>
+🔓 دخول
+</button>
+
+<button
+  class="btn back"
+  onclick="goHome()"
+>
+↩️ العودة للرئيسية
+</button>
+
 </div>
 </div>
+
 
 <!-- لوحة المطور -->
 <div id="developerPanel" class="page">
+
 <div class="box">
 
 <h2>🛠️ لوحة المطور</h2>
-<p style="text-align:center;color:#777;">إدارة منصة الدكتورة أمنية</p>
+
+<p style="text-align:center;color:#777;">
+إدارة منصة الدكتورة أمنية
+</p>
+
+
+<!-- =================================================
+     تقرير الطالب - أول قسم في المطور
+================================================= -->
+
+<div class="dev-section">
+
+<h3>📊 تقرير طالب كامل</h3>
+
+<p style="color:#777;">
+ابحث باسم الطالب أو الكود لعرض تقريره الكامل.
+</p>
+
+<div class="report-search-box">
+
+<input
+  id="studentReportSearch"
+  class="input"
+  type="text"
+  placeholder="🔎 اسم الطالب أو الكود"
+>
+
+<button
+  class="btn developer"
+  style="width:100%;margin-top:8px"
+  onclick="searchStudentReport()"
+>
+🔍 بحث عن الطالب
+</button>
+
+</div>
+
+<div id="studentReportResult">
+
+<div class="empty">
+اكتب اسم الطالب أو الكود واضغط بحث.
+</div>
+
+</div>
+
+</div>
+
 
 <!-- إضافة طالب -->
 <div class="dev-section">
+
 <h3>👨‍🎓 إضافة طالب</h3>
-<input id="newStudentName" class="input" type="text" placeholder="اسم الطالب">
-<input id="newStudentCode" class="input" type="text" placeholder="الكود الخاص بالطالب">
-<button class="btn login" onclick="addStudent()">➕ إضافة الطالب</button>
-<div id="studentSuccess" class="success">✅ تم إضافة الطالب بنجاح</div>
+
+<input
+  id="newStudentName"
+  class="input"
+  type="text"
+  placeholder="اسم الطالب"
+>
+
+<input
+  id="newStudentCode"
+  class="input"
+  type="text"
+  placeholder="الكود الخاص بالطالب"
+>
+
+<button
+  class="btn login"
+  onclick="addStudent()"
+>
+➕ إضافة الطالب
+</button>
+
+<div
+  id="studentSuccess"
+  class="success"
+>
+✅ تم إضافة الطالب بنجاح
 </div>
+
+</div>
+
 
 <!-- الطلاب -->
 <div class="dev-section">
+
 <h3>👥 الطلاب المسجلين</h3>
+
 <div id="studentsList"></div>
+
 </div>
+
 
 <!-- الدرجات -->
 <div class="dev-section">
+
 <h3>📊 إضافة درجة</h3>
-<select id="gradeStudent" class="input"></select>
-<input id="gradeName" class="input" type="text" placeholder="اسم الاختبار أو الواجب">
-<input id="gradeValue" class="input" type="number" placeholder="الدرجة">
-<input id="gradeMax" class="input" type="number" placeholder="من كام؟">
-<button class="btn login" onclick="addGrade()">➕ إضافة الدرجة</button>
+
+<select
+  id="gradeStudent"
+  class="input"
+></select>
+
+<input
+  id="gradeName"
+  class="input"
+  type="text"
+  placeholder="اسم الاختبار أو الواجب"
+>
+
+<input
+  id="gradeValue"
+  class="input"
+  type="number"
+  placeholder="الدرجة"
+>
+
+<input
+  id="gradeMax"
+  class="input"
+  type="number"
+  placeholder="من كام؟"
+>
+
+<button
+  class="btn login"
+  onclick="addGrade()"
+>
+➕ إضافة الدرجة
+</button>
+
 </div>
+
 
 <!-- التقييم -->
 <div class="dev-section">
+
 <h3>⭐ إضافة تقييم</h3>
-<select id="evaluationStudent" class="input"></select>
-<input id="evaluationText" class="input" type="text" placeholder="اكتب التقييم">
-<button class="btn login" onclick="addEvaluation()">⭐ إضافة التقييم</button>
+
+<select
+  id="evaluationStudent"
+  class="input"
+></select>
+
+<input
+  id="evaluationText"
+  class="input"
+  type="text"
+  placeholder="اكتب التقييم"
+>
+
+<button
+  class="btn login"
+  onclick="addEvaluation()"
+>
+⭐ إضافة التقييم
+</button>
+
 </div>
+
 
 <!-- الواجبات -->
 <div class="dev-section">
+
 <h3>📝 إضافة واجب</h3>
-<input id="homeworkTitle" class="input" type="text" placeholder="اسم الواجب">
-<input id="homeworkDescription" class="input" type="text" placeholder="وصف الواجب">
-<input id="homeworkDate" class="input" type="date">
-<button class="btn login" onclick="addHomework()">➕ إضافة الواجب</button>
+
+<input
+  id="homeworkTitle"
+  class="input"
+  type="text"
+  placeholder="اسم الواجب"
+>
+
+<input
+  id="homeworkDescription"
+  class="input"
+  type="text"
+  placeholder="وصف الواجب"
+>
+
+<input
+  id="homeworkDate"
+  class="input"
+  type="date"
+>
+
+<button
+  class="btn login"
+  onclick="addHomework()"
+>
+➕ إضافة الواجب
+</button>
+
 </div>
+
 
 <!-- الدروس -->
 <div class="dev-section">
+
 <h3>📚 إدارة الدروس</h3>
-<input id="lessonTitle" class="input" type="text" placeholder="عنوان الدرس">
-<input id="lessonDescription" class="input" type="text" placeholder="وصف الدرس">
-<input id="lessonVideo" class="input" type="url" placeholder="رابط فيديو الدرس">
-<button class="btn login" onclick="addLesson()">➕ إضافة الدرس</button>
+
+<input
+  id="lessonTitle"
+  class="input"
+  type="text"
+  placeholder="عنوان الدرس"
+>
+
+<input
+  id="lessonDescription"
+  class="input"
+  type="text"
+  placeholder="وصف الدرس"
+>
+
+<input
+  id="lessonVideo"
+  class="input"
+  type="url"
+  placeholder="رابط فيديو الدرس"
+>
+
+<button
+  class="btn login"
+  onclick="addLesson()"
+>
+➕ إضافة الدرس
+</button>
+
 <hr>
+
 <h3>📚 الدروس المضافة</h3>
-<div id="developerLessonsList">⏳ جاري تحميل الدروس...</div>
+
+<div id="developerLessonsList">
+⏳ جاري تحميل الدروس...
 </div>
+
+</div>
+
 
 <!-- الإعلانات -->
 <div class="dev-section">
+
 <h3>📢 إدارة الإعلانات</h3>
-<input id="announcementTitle" class="input" type="text" placeholder="عنوان الإعلان">
-<input id="announcementText" class="input" type="text" placeholder="نص الإعلان">
-<button class="btn login" onclick="addAnnouncement()">📢 نشر الإعلان</button>
+
+<input
+  id="announcementTitle"
+  class="input"
+  type="text"
+  placeholder="عنوان الإعلان"
+>
+
+<input
+  id="announcementText"
+  class="input"
+  type="text"
+  placeholder="نص الإعلان"
+>
+
+<button
+  class="btn login"
+  onclick="addAnnouncement()"
+>
+📢 نشر الإعلان
+</button>
+
 <hr>
+
 <h3>📢 الإعلانات المنشورة</h3>
-<div id="developerAnnouncementsList">⏳ جاري تحميل الإعلانات...</div>
+
+<div id="developerAnnouncementsList">
+⏳ جاري تحميل الإعلانات...
 </div>
+
+</div>
+
 
 <!-- إدارة الامتحانات -->
 <div class="dev-section">
+
 <h3>🧠 إدارة الامتحانات</h3>
 
-<input id="examTitleInput" class="input" type="text" placeholder="اسم الامتحان">
-<input id="examDurationInput" class="input" type="number" min="1" placeholder="مدة الامتحان بالدقائق">
+<input
+  id="examTitleInput"
+  class="input"
+  type="text"
+  placeholder="اسم الامتحان"
+>
 
-<button class="btn login" onclick="createExam()">➕ إنشاء امتحان</button>
+<input
+  id="examDurationInput"
+  class="input"
+  type="number"
+  min="1"
+  placeholder="مدة الامتحان بالدقائق"
+>
+
+<button
+  class="btn login"
+  onclick="createExam()"
+>
+➕ إنشاء امتحان
+</button>
 
 <hr>
 
 <h3>📋 الامتحانات الموجودة</h3>
-<div id="developerExamsList">⏳ جاري تحميل الامتحانات...</div>
 
-<div id="examEditor" style="display:none">
+<div id="developerExamsList">
+⏳ جاري تحميل الامتحانات...
+</div>
+
+<div
+  id="examEditor"
+  style="display:none"
+>
 
 <hr>
 
-<h3 id="editingExamTitle">📝 إضافة أسئلة</h3>
+<h3 id="editingExamTitle">
+📝 إضافة أسئلة
+</h3>
 
-<input id="questionText" class="input" type="text" placeholder="السؤال">
+<input
+  id="questionText"
+  class="input"
+  type="text"
+  placeholder="السؤال"
+>
 
-<input id="optionA" class="input" type="text" placeholder="الإجابة الأولى">
-<input id="optionB" class="input" type="text" placeholder="الإجابة الثانية">
-<input id="optionC" class="input" type="text" placeholder="الإجابة الثالثة">
-<input id="optionD" class="input" type="text" placeholder="الإجابة الرابعة">
+<input
+  id="optionA"
+  class="input"
+  type="text"
+  placeholder="الإجابة الأولى"
+>
 
-<select id="correctAnswer" class="input">
-<option value="">اختر الإجابة الصحيحة</option>
-<option value="a">الإجابة الأولى</option>
-<option value="b">الإجابة الثانية</option>
-<option value="c">الإجابة الثالثة</option>
-<option value="d">الإجابة الرابعة</option>
+<input
+  id="optionB"
+  class="input"
+  type="text"
+  placeholder="الإجابة الثانية"
+>
+
+<input
+  id="optionC"
+  class="input"
+  type="text"
+  placeholder="الإجابة الثالثة"
+>
+
+<input
+  id="optionD"
+  class="input"
+  type="text"
+  placeholder="الإجابة الرابعة"
+>
+
+<select
+  id="correctAnswer"
+  class="input"
+>
+
+<option value="">
+اختر الإجابة الصحيحة
+</option>
+
+<option value="a">
+الإجابة الأولى
+</option>
+
+<option value="b">
+الإجابة الثانية
+</option>
+
+<option value="c">
+الإجابة الثالثة
+</option>
+
+<option value="d">
+الإجابة الرابعة
+</option>
+
 </select>
 
-<button class="btn login" onclick="addExamQuestion()">➕ إضافة السؤال</button>
+<button
+  class="btn login"
+  onclick="addExamQuestion()"
+>
+➕ إضافة السؤال
+</button>
 
 <div id="questionsEditorList"></div>
 
 <hr>
 
 <h3>📊 نتائج الطلاب</h3>
-<div id="examResultsList">اختر عرض النتائج.</div>
+
+<div id="examResultsList">
+اختر عرض النتائج.
+</div>
 
 </div>
 </div>
+
 
 <!-- حالة النظام -->
 <div class="dev-section">
+
 <strong>🟢 حالة النظام</strong>
-<p>الاتصال بقاعدة البيانات يتم عبر Supabase.</p>
-</div>
 
-<button class="btn back" onclick="developerLogout()">🚪 تسجيل خروج المطور</button>
-<button class="btn back" onclick="goHome()">↩️ العودة للرئيسية</button>
-
-</div>
-</div>
+<p>
+الاتصال بقاعدة البيانات يتم عبر Supabase.
+</p>
 
 </div>
+
+
+<button
+  class="btn back"
+  onclick="developerLogout()"
+>
+🚪 تسجيل خروج المطور
+</button>
+
+<button
+  class="btn back"
+  onclick="goHome()"
+>
+↩️ العودة للرئيسية
+</button>
+
+</div>
+</div>
+
+</div>
+
 
 <script>
 
 const SUPABASE_URL="https://ovohszewmkpfsfmzqbbl.supabase.co";
+
 const SUPABASE_KEY="sb_publishable_Dugwxvbp5wp9nW5huUCWDw_iH3D8jQq";
 
-const db=window.supabase.createClient(SUPABASE_URL,SUPABASE_KEY);
+const db=window.supabase.createClient(
+  SUPABASE_URL,
+  SUPABASE_KEY
+);
+
 
 let currentStudent=null;
+
 let developerSession=null;
 
 let currentExam=null;
+
 let currentAttempt=null;
+
 let examTimerInterval=null;
 
+let editingExamId=null;
+
+
+/* =========================
+   أدوات عامة
+========================= */
+
 function escapeHtml(value){
+
   const d=document.createElement("div");
+
   d.textContent=value??"";
+
   return d.innerHTML;
 }
 
+
 function showPage(pageId){
-  document.querySelectorAll(".page").forEach(p=>p.classList.remove("active"));
+
+  document
+  .querySelectorAll(".page")
+  .forEach(p=>p.classList.remove("active"));
+
   const page=document.getElementById(pageId);
-  if(page) page.classList.add("active");
+
+  if(page){
+    page.classList.add("active");
+  }
 }
+
 
 function goHome(){
 
   if(examTimerInterval){
+
     clearInterval(examTimerInterval);
+
     examTimerInterval=null;
   }
 
   currentStudent=null;
+
   currentExam=null;
+
   currentAttempt=null;
 
   showPage("home");
@@ -340,94 +1204,188 @@ function goHome(){
     "developerEmail",
     "developerPassword"
   ].forEach(id=>{
+
     const el=document.getElementById(id);
-    if(el) el.value="";
+
+    if(el){
+      el.value="";
+    }
+
   });
 
   document.getElementById("studentError").style.display="none";
+
   document.getElementById("passwordError").style.display="none";
 }
 
+
+function formatSupabaseError(error){
+
+  if(!error){
+    return "خطأ غير معروف.";
+  }
+
+  const parts=[
+    error.message,
+    error.details,
+    error.hint,
+    error.code
+      ? "الكود: "+error.code
+      : ""
+  ].filter(Boolean);
+
+  return parts.join("\n");
+}
+
+
+/* =========================
+   دخول الطالب
+========================= */
+
 async function studentLogin(){
 
-  const name=document.getElementById("studentName").value.trim();
-  const code=document.getElementById("studentCode").value.trim();
+  const name=
+    document
+    .getElementById("studentName")
+    .value
+    .trim();
 
-  const error=document.getElementById("studentError");
-  const status=document.getElementById("studentStatus");
+  const code=
+    document
+    .getElementById("studentCode")
+    .value
+    .trim();
+
+  const error=
+    document.getElementById("studentError");
+
+  const status=
+    document.getElementById("studentStatus");
 
   error.style.display="none";
+
   status.textContent="⏳ جاري التحقق...";
 
   if(!name||!code){
-    error.textContent="اكتب الاسم والكود.";
+
+    error.textContent=
+      "اكتب الاسم والكود.";
+
     error.style.display="block";
+
     status.textContent="";
+
     return;
   }
 
-  const {data,error:rpcError}=await db.rpc("student_login",{
-    p_name:name,
-    p_code:code
-  });
+  const {
+    data,
+    error:rpcError
+  }=await db.rpc(
+    "student_login",
+    {
+      p_name:name,
+      p_code:code
+    }
+  );
 
   if(rpcError){
+
     console.error(rpcError);
-    error.textContent="حصل خطأ في الاتصال بقاعدة البيانات.";
+
+    error.textContent=
+      "حصل خطأ في الاتصال بقاعدة البيانات.";
+
     error.style.display="block";
+
     status.textContent="";
+
     return;
   }
 
   if(!data){
-    error.textContent="❌ الاسم أو الكود غير صحيح.";
+
+    error.textContent=
+      "❌ الاسم أو الكود غير صحيح.";
+
     error.style.display="block";
+
     status.textContent="";
+
     return;
   }
 
-  /*
-    مهم:
-    نحفظ الاسم والكود هنا حتى لو اختفت خانات تسجيل الدخول.
-  */
   currentStudent={
     ...data,
     name:name,
     code:code
   };
 
-  document.getElementById("studentWelcome").textContent=data.name;
+  document
+  .getElementById("studentWelcome")
+  .textContent=data.name;
+
   status.textContent="";
+
   showPage("studentPanel");
 }
 
+
+/* =========================
+   دخول المطور
+========================= */
+
 function showDeveloperLogin(){
+
   showPage("developerLogin");
 }
 
+
 async function checkDeveloperPassword(){
 
-  const email=document.getElementById("developerEmail").value.trim();
-  const password=document.getElementById("developerPassword").value;
-  const error=document.getElementById("passwordError");
+  const email=
+    document
+    .getElementById("developerEmail")
+    .value
+    .trim();
+
+  const password=
+    document
+    .getElementById("developerPassword")
+    .value;
+
+  const error=
+    document.getElementById("passwordError");
 
   error.style.display="none";
 
   if(!email||!password){
-    error.textContent="اكتب البريد وكلمة المرور.";
+
+    error.textContent=
+      "اكتب البريد وكلمة المرور.";
+
     error.style.display="block";
+
     return;
   }
 
-  const {data,error:loginError}=await db.auth.signInWithPassword({
+  const {
+    data,
+    error:loginError
+  }=await db.auth.signInWithPassword({
     email,
     password
   });
 
   if(loginError){
+
     console.error(loginError);
-    error.textContent="❌ البريد أو كلمة المرور غير صحيحة.";
+
+    error.textContent=
+      "❌ البريد أو كلمة المرور غير صحيحة.";
+
     error.style.display="block";
+
     return;
   }
 
@@ -438,56 +1396,66 @@ async function checkDeveloperPassword(){
   showPage("developerPanel");
 }
 
+
 async function developerLogout(){
+
   await db.auth.signOut();
+
   developerSession=null;
+
   goHome();
 }
 
+
 async function requireDeveloper(){
 
-  const {data}=await db.auth.getSession();
+  const {
+    data
+  }=await db.auth.getSession();
 
   if(!data.session){
-    alert("يجب تسجيل دخول المطور أولاً.");
+
+    alert(
+      "يجب تسجيل دخول المطور أولاً."
+    );
+
     showPage("developerLogin");
+
     return false;
   }
 
   return true;
 }
 
-function formatSupabaseError(error){
-
-  if(!error) return "خطأ غير معروف.";
-
-  const parts=[
-    error.message,
-    error.details,
-    error.hint,
-    error.code?"الكود: "+error.code:""
-  ].filter(Boolean);
-
-  return parts.join("\n");
-}
 
 /* =========================
-   لوحة المطور
+   تحديث قوائم المطور
 ========================= */
 
 async function updateDeveloperLists(){
 
-  if(!(await requireDeveloper())) return;
-
-  const {data:sessionData}=await db.auth.getSession();
-
-  if(!sessionData.session){
-    document.getElementById("studentsList").innerHTML=
-    "<div class='empty'>جلسة المطور غير موجودة.</div>";
+  if(!(await requireDeveloper())){
     return;
   }
 
-  const {data,error}=await db
+  const {
+    data:sessionData
+  }=await db.auth.getSession();
+
+  if(!sessionData.session){
+
+    document
+    .getElementById("studentsList")
+    .innerHTML=
+      "<div class='empty'>جلسة المطور غير موجودة.</div>";
+
+    return;
+  }
+
+  const {
+    data,
+    error
+  }=await db
   .from("students")
   .select("id,name,code")
   .order("name");
@@ -496,57 +1464,761 @@ async function updateDeveloperLists(){
 
     console.error(error);
 
-    document.getElementById("studentsList").innerHTML=
-    "<div class='empty'>❌ تعذر تحميل الطلاب.<br><small>"+
-    escapeHtml(formatSupabaseError(error)).replace(/\n/g,"<br>")+
-    "</small></div>";
+    document
+    .getElementById("studentsList")
+    .innerHTML=
+      "<div class='empty'>❌ تعذر تحميل الطلاب.<br><small>"+
+      escapeHtml(
+        formatSupabaseError(error)
+      ).replace(/\n/g,"<br>")+
+      "</small></div>";
 
   }else{
 
-    const list=document.getElementById("studentsList");
-    const gs=document.getElementById("gradeStudent");
-    const es=document.getElementById("evaluationStudent");
+    const list=
+      document.getElementById("studentsList");
+
+    const gs=
+      document.getElementById("gradeStudent");
+
+    const es=
+      document.getElementById("evaluationStudent");
 
     list.innerHTML="";
+
     gs.innerHTML="";
+
     es.innerHTML="";
 
     if(!data.length){
 
-      list.innerHTML="<div class='empty'>لا يوجد طلاب حالياً.</div>";
+      list.innerHTML=
+        "<div class='empty'>لا يوجد طلاب حالياً.</div>";
 
     }else{
 
       data.forEach(s=>{
 
         list.innerHTML+=`
+
         <div class="card">
-          <strong>👨‍🎓 ${escapeHtml(s.name)}</strong>
+
+          <strong>
+            👨‍🎓 ${escapeHtml(s.name)}
+          </strong>
+
           <br>
-          🔑 الكود: ${escapeHtml(s.code)}
+
+          🔑 الكود:
+          ${escapeHtml(s.code)}
+
           <br>
-          <button class="small-btn delete" onclick="deleteStudent('${s.id}')">
+
+          <button
+            class="small-btn"
+            style="background:#1877f2"
+            onclick="loadReportForStudent('${s.id}')"
+          >
+            📊 التقرير
+          </button>
+
+          <button
+            class="small-btn delete"
+            onclick="deleteStudent('${s.id}')"
+          >
             🗑️ حذف
           </button>
-        </div>`;
+
+        </div>
+
+        `;
 
         gs.innerHTML+=`
+
         <option value="${s.id}">
           ${escapeHtml(s.name)}
-        </option>`;
+        </option>
+
+        `;
 
         es.innerHTML+=`
+
         <option value="${s.id}">
           ${escapeHtml(s.name)}
-        </option>`;
+        </option>
+
+        `;
+
       });
     }
   }
 
   await loadDeveloperLessons();
+
   await loadDeveloperAnnouncements();
+
   await loadDeveloperExams();
 }
+
+
+/* =========================================================
+   تقرير الطالب الكامل
+========================================================= */
+
+async function searchStudentReport(){
+
+  if(!(await requireDeveloper())){
+    return;
+  }
+
+  const search=
+    document
+    .getElementById("studentReportSearch")
+    .value
+    .trim();
+
+  const result=
+    document.getElementById("studentReportResult");
+
+  if(!search){
+
+    result.innerHTML=`
+      <div class="empty">
+        اكتب اسم الطالب أو الكود أولاً.
+      </div>
+    `;
+
+    return;
+  }
+
+  result.innerHTML=`
+    <div class="empty">
+      ⏳ جاري تجهيز تقرير الطالب...
+    </div>
+  `;
+
+  const {
+    data,
+    error
+  }=await db.rpc(
+    "get_student_full_report",
+    {
+      p_search:search
+    }
+  );
+
+  if(error){
+
+    console.error(error);
+
+    result.innerHTML=`
+
+      <div class="error" style="display:block">
+
+        ❌ لم يتم العثور على الطالب أو حدث خطأ.
+
+        <br><br>
+
+        <small>
+          ${escapeHtml(
+            formatSupabaseError(error)
+          ).replace(/\n/g,"<br>")}
+        </small>
+
+      </div>
+
+    `;
+
+    return;
+  }
+
+  if(!data||!data.student){
+
+    result.innerHTML=`
+      <div class="empty">
+        ❌ الطالب غير موجود.
+      </div>
+    `;
+
+    return;
+  }
+
+  renderStudentReport(data);
+}
+
+
+/*
+  فتح تقرير الطالب مباشرة من قائمة الطلاب
+*/
+async function loadReportForStudent(studentId){
+
+  if(!(await requireDeveloper())){
+    return;
+  }
+
+  const {
+    data:student,
+    error
+  }=await db
+  .from("students")
+  .select("name,code")
+  .eq("id",studentId)
+  .single();
+
+  if(error||!student){
+
+    alert(
+      "❌ تعذر تحميل بيانات الطالب."
+    );
+
+    return;
+  }
+
+  document
+  .getElementById("studentReportSearch")
+  .value=student.code;
+
+  await searchStudentReport();
+
+  document
+  .getElementById("studentReportResult")
+  .scrollIntoView({
+    behavior:"smooth",
+    block:"start"
+  });
+}
+
+
+/*
+  عرض التقرير
+*/
+function renderStudentReport(report){
+
+  const result=
+    document.getElementById(
+      "studentReportResult"
+    );
+
+  const student=
+    report.student||{};
+
+  const grades=
+    Array.isArray(report.grades)
+      ?report.grades
+      :[];
+
+  const evaluations=
+    Array.isArray(report.evaluations)
+      ?report.evaluations
+      :[];
+
+  const lessons=
+    Array.isArray(report.lessons)
+      ?report.lessons
+      :[];
+
+  const exams=
+    Array.isArray(report.exams)
+      ?report.exams
+      :[];
+
+
+  const viewedLessons=
+    lessons.filter(l=>l.viewed);
+
+  const notViewedLessons=
+    lessons.filter(l=>!l.viewed);
+
+  const enteredExams=
+    exams.filter(e=>e.entered);
+
+  const notEnteredExams=
+    exams.filter(e=>!e.entered);
+
+  const submittedExams=
+    exams.filter(
+      e=>e.submitted_at
+    );
+
+
+  let totalScore=0;
+
+  let totalMax=0;
+
+  grades.forEach(g=>{
+
+    totalScore+=Number(g.value)||0;
+
+    totalMax+=Number(g.max)||0;
+
+  });
+
+
+  let reportHtml=`
+
+
+  <div class="report-student">
+
+    <h3>
+      👨‍🎓 ${escapeHtml(student.name)}
+    </h3>
+
+    <p>
+      🔑 <strong>كود الطالب:</strong>
+      ${escapeHtml(student.code)}
+    </p>
+
+    ${
+      student.created_at
+      ?`
+      <p class="report-muted">
+        📅 تاريخ تسجيل الطالب:
+        ${new Date(
+          student.created_at
+        ).toLocaleString("ar-EG")}
+      </p>
+      `
+      :""
+    }
+
+  </div>
+
+
+  <div class="report-summary">
+
+    <div class="report-stat">
+      📊 الدرجات
+      <strong>
+        ${grades.length}
+      </strong>
+    </div>
+
+    <div class="report-stat">
+      ⭐ التقييمات
+      <strong>
+        ${evaluations.length}
+      </strong>
+    </div>
+
+    <div class="report-stat">
+      📚 الدروس
+      <strong>
+        ${viewedLessons.length}/${lessons.length}
+      </strong>
+    </div>
+
+    <div class="report-stat">
+      🧠 الامتحانات
+      <strong>
+        ${enteredExams.length}/${exams.length}
+      </strong>
+    </div>
+
+  </div>
+
+
+  <!-- ملخص الدرجات -->
+
+  <div class="report-section">
+
+    <div class="report-section-title">
+      📈 ملخص الدرجات
+    </div>
+
+    <div class="report-item">
+
+      <div>
+        مجموع الدرجات:
+        <span class="report-score">
+          ${totalScore} / ${totalMax}
+        </span>
+      </div>
+
+      ${
+        totalMax>0
+        ?`
+        <div class="report-muted">
+          النسبة:
+          ${Math.round(
+            (totalScore/totalMax)*100
+          )}%
+        </div>
+        `
+        :""
+      }
+
+    </div>
+
+  </div>
+
+
+  <!-- كل الدرجات -->
+
+  <div class="report-section">
+
+    <div class="report-section-title">
+      📊 درجات الطالب
+    </div>
+
+    ${
+      grades.length
+      ?grades.map(g=>`
+
+        <div class="report-item">
+
+          <strong>
+            📝 ${escapeHtml(g.name)}
+          </strong>
+
+          <br><br>
+
+          الدرجة:
+          <span class="report-score">
+            ${escapeHtml(g.value)}
+            /
+            ${escapeHtml(g.max)}
+          </span>
+
+          ${
+            g.created_at
+            ?`
+            <br>
+            <small class="report-muted">
+              📅 ${new Date(
+                g.created_at
+              ).toLocaleString("ar-EG")}
+            </small>
+            `
+            :""
+          }
+
+        </div>
+
+      `).join("")
+      :`
+        <div class="empty">
+          لا توجد درجات مسجلة لهذا الطالب.
+        </div>
+      `
+    }
+
+  </div>
+
+
+  <!-- التقييمات -->
+
+  <div class="report-section">
+
+    <div class="report-section-title">
+      ⭐ تقييمات الطالب
+    </div>
+
+    ${
+      evaluations.length
+      ?evaluations.map(e=>`
+
+        <div class="report-item success-item">
+
+          ⭐
+          ${escapeHtml(e.text)}
+
+          ${
+            e.created_at
+            ?`
+            <br>
+            <small class="report-muted">
+              📅 ${new Date(
+                e.created_at
+              ).toLocaleString("ar-EG")}
+            </small>
+            `
+            :""
+          }
+
+        </div>
+
+      `).join("")
+      :`
+        <div class="empty">
+          لا توجد تقييمات مسجلة.
+        </div>
+      `
+    }
+
+  </div>
+
+
+  <!-- الدروس -->
+
+  <div class="report-section">
+
+    <div class="report-section-title">
+      📚 سجل الدروس
+    </div>
+
+    <div class="report-item success-item">
+
+      ✅ دخل:
+      <strong>
+        ${viewedLessons.length}
+      </strong>
+
+      درس
+
+      <br>
+
+      ❌ لم يدخل:
+      <strong>
+        ${notViewedLessons.length}
+      </strong>
+
+      درس
+
+      <br>
+
+      📚 إجمالي:
+      <strong>
+        ${lessons.length}
+      </strong>
+
+      درس
+
+    </div>
+
+    ${
+      lessons.length
+      ?lessons.map(l=>`
+
+        <div class="report-item ${
+          l.viewed
+            ?"success-item"
+            :"warning-item"
+        }">
+
+          <strong>
+            ${
+              l.viewed
+              ?"✅"
+              :"❌"
+            }
+
+            ${escapeHtml(l.title)}
+          </strong>
+
+          <br>
+
+          ${
+            l.viewed
+            ?`
+            <span class="report-muted">
+              دخل الدرس
+              ${
+                l.viewed_at
+                ?" — "+new Date(
+                    l.viewed_at
+                  ).toLocaleString("ar-EG")
+                :""
+              }
+            </span>
+            `
+            :`
+            <span class="report-muted">
+              الطالب لم يدخل هذا الدرس.
+            </span>
+            `
+          }
+
+        </div>
+
+      `).join("")
+      :`
+        <div class="empty">
+          لا توجد دروس حالياً.
+        </div>
+      `
+    }
+
+  </div>
+
+
+  <!-- الامتحانات -->
+
+  <div class="report-section">
+
+    <div class="report-section-title">
+      🧠 سجل الامتحانات
+    </div>
+
+    <div class="report-item">
+
+      🧠 دخل:
+      <strong>
+        ${enteredExams.length}
+      </strong>
+
+      امتحان
+
+      <br>
+
+      ❌ لم يدخل:
+      <strong>
+        ${notEnteredExams.length}
+      </strong>
+
+      امتحان
+
+      <br>
+
+      ✅ سلّم:
+      <strong>
+        ${submittedExams.length}
+      </strong>
+
+      امتحان
+
+      <br>
+
+      📋 إجمالي:
+      <strong>
+        ${exams.length}
+      </strong>
+
+      امتحان
+
+    </div>
+
+    ${
+      exams.length
+      ?exams.map(ex=>{
+
+        let itemClass="";
+
+        if(!ex.entered){
+          itemClass="warning-item";
+        }else if(ex.submitted_at){
+          itemClass="success-item";
+        }else{
+          itemClass="danger-item";
+        }
+
+        let statusText=
+          ex.status||"لم يدخل";
+
+        let scoreText="—";
+
+        if(ex.submitted_at){
+
+          scoreText=
+            `${ex.score??0} / ${
+              ex.total_questions??0
+            }`;
+
+        }
+
+        return `
+
+        <div class="report-item ${itemClass}">
+
+          <strong>
+            ${
+              ex.entered
+              ?"🧠"
+              :"❌"
+            }
+
+            ${escapeHtml(ex.title)}
+          </strong>
+
+          <br><br>
+
+          الحالة:
+
+          <span class="report-status">
+            ${escapeHtml(statusText)}
+          </span>
+
+          <br><br>
+
+          📊 الدرجة:
+
+          <span class="report-score">
+            ${scoreText}
+          </span>
+
+          <br>
+
+          ⏱️ مدة الامتحان:
+          ${ex.duration_minutes}
+          دقيقة
+
+          ${
+            ex.started_at
+            ?`
+            <br>
+            <small class="report-muted">
+              🕐 بدأ:
+              ${new Date(
+                ex.started_at
+              ).toLocaleString("ar-EG")}
+            </small>
+            `
+            :""
+          }
+
+          ${
+            ex.submitted_at
+            ?`
+            <br>
+            <small class="report-muted">
+              ✅ سلّم:
+              ${new Date(
+                ex.submitted_at
+              ).toLocaleString("ar-EG")}
+            </small>
+            `
+            :""
+          }
+
+        </div>
+
+        `;
+
+      }).join("")
+      :`
+        <div class="empty">
+          لا توجد امتحانات حالياً.
+        </div>
+      `
+    }
+
+  </div>
+
+
+  `;
+
+
+  result.innerHTML=reportHtml;
+}
+
+
+/*
+  البحث بالضغط على Enter
+*/
+document
+.getElementById("studentReportSearch")
+.addEventListener(
+  "keydown",
+  e=>{
+
+    if(e.key==="Enter"){
+
+      searchStudentReport();
+
+    }
+
+  }
+);
+
 
 /* =========================
    الطلاب
@@ -554,24 +2226,48 @@ async function updateDeveloperLists(){
 
 async function addStudent(){
 
-  if(!(await requireDeveloper())) return;
+  if(!(await requireDeveloper())){
+    return;
+  }
 
-  const name=document.getElementById("newStudentName").value.trim();
-  const code=document.getElementById("newStudentCode").value.trim();
+  const name=
+    document
+    .getElementById("newStudentName")
+    .value
+    .trim();
+
+  const code=
+    document
+    .getElementById("newStudentCode")
+    .value
+    .trim();
 
   if(!name||!code){
-    alert("من فضلك اكتب اسم الطالب والكود.");
+
+    alert(
+      "من فضلك اكتب اسم الطالب والكود."
+    );
+
     return;
   }
 
-  const {data:sessionData}=await db.auth.getSession();
+  const {
+    data:sessionData
+  }=await db.auth.getSession();
 
   if(!sessionData.session){
-    alert("❌ جلسة المطور غير موجودة.");
+
+    alert(
+      "❌ جلسة المطور غير موجودة."
+    );
+
     return;
   }
 
-  const {data,error}=await db
+  const {
+    data,
+    error
+  }=await db
   .from("students")
   .insert({
     name,
@@ -585,43 +2281,71 @@ async function addStudent(){
 
     alert(
       error.code==="23505"
-      ?"❌ الكود ده مستخدم بالفعل.\n\n"+formatSupabaseError(error)
-      :"❌ تعذر إضافة الطالب.\n\n"+formatSupabaseError(error)
+      ?"❌ الكود ده مستخدم بالفعل.\n\n"+
+        formatSupabaseError(error)
+      :"❌ تعذر إضافة الطالب.\n\n"+
+        formatSupabaseError(error)
     );
 
     return;
   }
 
-  document.getElementById("newStudentName").value="";
-  document.getElementById("newStudentCode").value="";
+  document
+  .getElementById("newStudentName")
+  .value="";
 
-  document.getElementById("studentSuccess").style.display="block";
+  document
+  .getElementById("newStudentCode")
+  .value="";
+
+  document
+  .getElementById("studentSuccess")
+  .style.display="block";
 
   setTimeout(()=>{
-    document.getElementById("studentSuccess").style.display="none";
+
+    document
+    .getElementById("studentSuccess")
+    .style.display="none";
+
   },2000);
 
   await updateDeveloperLists();
 }
 
+
 async function deleteStudent(id){
 
-  if(!(await requireDeveloper())) return;
+  if(!(await requireDeveloper())){
+    return;
+  }
 
-  if(!confirm("هل أنت متأكد من حذف الطالب؟")) return;
+  if(!confirm(
+    "هل أنت متأكد من حذف الطالب؟"
+  )){
+    return;
+  }
 
-  const {error}=await db
+  const {
+    error
+  }=await db
   .from("students")
   .delete()
   .eq("id",id);
 
   if(error){
-    alert("❌ تعذر حذف الطالب.\n\n"+formatSupabaseError(error));
+
+    alert(
+      "❌ تعذر حذف الطالب.\n\n"+
+      formatSupabaseError(error)
+    );
+
     return;
   }
 
   await updateDeveloperLists();
 }
+
 
 /* =========================
    الدرجات
@@ -629,19 +2353,54 @@ async function deleteStudent(id){
 
 async function addGrade(){
 
-  if(!(await requireDeveloper())) return;
-
-  const student_id=document.getElementById("gradeStudent").value;
-  const name=document.getElementById("gradeName").value.trim();
-  const value=Number(document.getElementById("gradeValue").value);
-  const max=Number(document.getElementById("gradeMax").value);
-
-  if(!student_id||!name||!Number.isFinite(value)||!Number.isFinite(max)){
-    alert("أكمل بيانات الدرجة.");
+  if(!(await requireDeveloper())){
     return;
   }
 
-  const {error}=await db.from("grades").insert({
+  const student_id=
+    document
+    .getElementById("gradeStudent")
+    .value;
+
+  const name=
+    document
+    .getElementById("gradeName")
+    .value
+    .trim();
+
+  const value=
+    Number(
+      document
+      .getElementById("gradeValue")
+      .value
+    );
+
+  const max=
+    Number(
+      document
+      .getElementById("gradeMax")
+      .value
+    );
+
+  if(
+    !student_id||
+    !name||
+    !Number.isFinite(value)||
+    !Number.isFinite(max)
+  ){
+
+    alert(
+      "أكمل بيانات الدرجة."
+    );
+
+    return;
+  }
+
+  const {
+    error
+  }=await db
+  .from("grades")
+  .insert({
     student_id,
     name,
     value,
@@ -649,42 +2408,91 @@ async function addGrade(){
   });
 
   if(error){
-    alert("❌ تعذر إضافة الدرجة.\n\n"+formatSupabaseError(error));
+
+    alert(
+      "❌ تعذر إضافة الدرجة.\n\n"+
+      formatSupabaseError(error)
+    );
+
     return;
   }
 
-  ["gradeName","gradeValue","gradeMax"].forEach(id=>{
-    document.getElementById(id).value="";
+  [
+    "gradeName",
+    "gradeValue",
+    "gradeMax"
+  ].forEach(id=>{
+
+    document
+    .getElementById(id)
+    .value="";
+
   });
 
-  alert("✅ تم إضافة الدرجة.");
+  alert(
+    "✅ تم إضافة الدرجة."
+  );
 }
+
+
+/* =========================
+   التقييمات
+========================= */
 
 async function addEvaluation(){
 
-  if(!(await requireDeveloper())) return;
-
-  const student_id=document.getElementById("evaluationStudent").value;
-  const text=document.getElementById("evaluationText").value.trim();
-
-  if(!student_id||!text){
-    alert("اكتب التقييم أولاً.");
+  if(!(await requireDeveloper())){
     return;
   }
 
-  const {error}=await db.from("evaluations").insert({
+  const student_id=
+    document
+    .getElementById("evaluationStudent")
+    .value;
+
+  const text=
+    document
+    .getElementById("evaluationText")
+    .value
+    .trim();
+
+  if(!student_id||!text){
+
+    alert(
+      "اكتب التقييم أولاً."
+    );
+
+    return;
+  }
+
+  const {
+    error
+  }=await db
+  .from("evaluations")
+  .insert({
     student_id,
     text
   });
 
   if(error){
-    alert("❌ تعذر إضافة التقييم.\n\n"+formatSupabaseError(error));
+
+    alert(
+      "❌ تعذر إضافة التقييم.\n\n"+
+      formatSupabaseError(error)
+    );
+
     return;
   }
 
-  document.getElementById("evaluationText").value="";
-  alert("⭐ تم إضافة التقييم.");
+  document
+  .getElementById("evaluationText")
+  .value="";
+
+  alert(
+    "⭐ تم إضافة التقييم."
+  );
 }
+
 
 /* =========================
    الواجبات
@@ -692,34 +2500,73 @@ async function addEvaluation(){
 
 async function addHomework(){
 
-  if(!(await requireDeveloper())) return;
-
-  const title=document.getElementById("homeworkTitle").value.trim();
-  const description=document.getElementById("homeworkDescription").value.trim();
-  const due_date=document.getElementById("homeworkDate").value||null;
-
-  if(!title||!description){
-    alert("اكتب اسم الواجب ووصفه.");
+  if(!(await requireDeveloper())){
     return;
   }
 
-  const {error}=await db.from("homework").insert({
+  const title=
+    document
+    .getElementById("homeworkTitle")
+    .value
+    .trim();
+
+  const description=
+    document
+    .getElementById("homeworkDescription")
+    .value
+    .trim();
+
+  const due_date=
+    document
+    .getElementById("homeworkDate")
+    .value||null;
+
+  if(!title||!description){
+
+    alert(
+      "اكتب اسم الواجب ووصفه."
+    );
+
+    return;
+  }
+
+  const {
+    error
+  }=await db
+  .from("homework")
+  .insert({
     title,
     description,
     due_date
   });
 
   if(error){
-    alert("❌ تعذر إضافة الواجب.\n\n"+formatSupabaseError(error));
+
+    alert(
+      "❌ تعذر إضافة الواجب.\n\n"+
+      formatSupabaseError(error)
+    );
+
     return;
   }
 
-  ["homeworkTitle","homeworkDescription","homeworkDate"].forEach(id=>{
-    document.getElementById(id).value="";
+  [
+    "homeworkTitle",
+    "homeworkDescription",
+    "homeworkDate"
+  ].forEach(id=>{
+
+    document
+    .getElementById(id)
+    .value="";
+
   });
 
-  alert("📝 تم إضافة الواجب.");
+  alert(
+    "📝 تم إضافة الواجب."
+  );
 }
+
 
 /* =========================
    الدروس
@@ -727,102 +2574,200 @@ async function addHomework(){
 
 async function addLesson(){
 
-  if(!(await requireDeveloper())) return;
-
-  const title=document.getElementById("lessonTitle").value.trim();
-  const description=document.getElementById("lessonDescription").value.trim();
-  const video_url=document.getElementById("lessonVideo").value.trim();
-
-  if(!title){
-    alert("اكتب عنوان الدرس.");
+  if(!(await requireDeveloper())){
     return;
   }
 
-  const {error}=await db.from("lessons").insert({
+  const title=
+    document
+    .getElementById("lessonTitle")
+    .value
+    .trim();
+
+  const description=
+    document
+    .getElementById("lessonDescription")
+    .value
+    .trim();
+
+  const video_url=
+    document
+    .getElementById("lessonVideo")
+    .value
+    .trim();
+
+  if(!title){
+
+    alert(
+      "اكتب عنوان الدرس."
+    );
+
+    return;
+  }
+
+  const {
+    error
+  }=await db
+  .from("lessons")
+  .insert({
     title,
     description,
     video_url
   });
 
   if(error){
-    alert("❌ تعذر إضافة الدرس.\n\n"+formatSupabaseError(error));
+
+    alert(
+      "❌ تعذر إضافة الدرس.\n\n"+
+      formatSupabaseError(error)
+    );
+
     return;
   }
 
-  ["lessonTitle","lessonDescription","lessonVideo"].forEach(id=>{
-    document.getElementById(id).value="";
+  [
+    "lessonTitle",
+    "lessonDescription",
+    "lessonVideo"
+  ].forEach(id=>{
+
+    document
+    .getElementById(id)
+    .value="";
+
   });
 
-  alert("✅ تم إضافة الدرس بنجاح.");
+  alert(
+    "✅ تم إضافة الدرس بنجاح."
+  );
 
   await loadDeveloperLessons();
 }
 
+
 async function loadDeveloperLessons(){
 
-  const list=document.getElementById("developerLessonsList");
-  if(!list) return;
+  const list=
+    document.getElementById(
+      "developerLessonsList"
+    );
 
-  list.innerHTML="⏳ جاري تحميل الدروس...";
+  if(!list){
+    return;
+  }
 
-  const {data,error}=await db
+  list.innerHTML=
+    "⏳ جاري تحميل الدروس...";
+
+  const {
+    data,
+    error
+  }=await db
   .from("lessons")
-  .select("id,title,description,video_url,created_at")
-  .order("created_at",{ascending:false});
+  .select(
+    "id,title,description,video_url,created_at"
+  )
+  .order(
+    "created_at",
+    {ascending:false}
+  );
 
   if(error){
-    list.innerHTML="<div class='empty'>❌ تعذر تحميل الدروس.</div>";
+
+    list.innerHTML=
+      "<div class='empty'>❌ تعذر تحميل الدروس.</div>";
+
     return;
   }
 
   if(!data||!data.length){
-    list.innerHTML="<div class='empty'>📚 لا توجد دروس مضافة حالياً.</div>";
+
+    list.innerHTML=
+      "<div class='empty'>📚 لا توجد دروس مضافة حالياً.</div>";
+
     return;
   }
 
-  list.innerHTML=data.map(lesson=>`
+  list.innerHTML=
+    data.map(lesson=>`
 
-  <div class="card">
+    <div class="card">
 
-    <h3>📚 ${escapeHtml(lesson.title)}</h3>
+      <h3>
+        📚 ${escapeHtml(lesson.title)}
+      </h3>
 
-    ${lesson.description?`
-      <p>${escapeHtml(lesson.description)}</p>
-    `:""}
+      ${
+        lesson.description
+        ?`
+        <p>
+          ${escapeHtml(
+            lesson.description
+          )}
+        </p>
+        `
+        :""
+      }
 
-    ${lesson.video_url?`
-      <p>🔗 يوجد رابط فيديو للدرس</p>
-    `:""}
+      ${
+        lesson.video_url
+        ?`
+        <p>
+          🔗 يوجد رابط فيديو للدرس
+        </p>
+        `
+        :""
+      }
 
-    <button class="small-btn delete" onclick="deleteLesson('${lesson.id}')">
-      🗑️ حذف الدرس
-    </button>
+      <button
+        class="small-btn delete"
+        onclick="deleteLesson('${lesson.id}')"
+      >
+        🗑️ حذف الدرس
+      </button>
 
-  </div>
+    </div>
 
-  `).join("");
+    `).join("");
 }
+
 
 async function deleteLesson(id){
 
-  if(!(await requireDeveloper())) return;
+  if(!(await requireDeveloper())){
+    return;
+  }
 
-  if(!confirm("هل أنت متأكد من حذف هذا الدرس؟")) return;
+  if(!confirm(
+    "هل أنت متأكد من حذف هذا الدرس؟"
+  )){
+    return;
+  }
 
-  const {error}=await db
+  const {
+    error
+  }=await db
   .from("lessons")
   .delete()
   .eq("id",id);
 
   if(error){
-    alert("❌ تعذر حذف الدرس.\n\n"+formatSupabaseError(error));
+
+    alert(
+      "❌ تعذر حذف الدرس.\n\n"+
+      formatSupabaseError(error)
+    );
+
     return;
   }
 
-  alert("✅ تم حذف الدرس.");
+  alert(
+    "✅ تم حذف الدرس."
+  );
 
   await loadDeveloperLessons();
 }
+
 
 /* =========================
    الإعلانات
@@ -830,113 +2775,212 @@ async function deleteLesson(id){
 
 async function addAnnouncement(){
 
-  if(!(await requireDeveloper())) return;
-
-  const title=document.getElementById("announcementTitle").value.trim();
-  const body=document.getElementById("announcementText").value.trim();
-
-  if(!title||!body){
-    alert("اكتب عنوان ونص الإعلان.");
+  if(!(await requireDeveloper())){
     return;
   }
 
-  const {error}=await db.from("announcements").insert({
+  const title=
+    document
+    .getElementById("announcementTitle")
+    .value
+    .trim();
+
+  const body=
+    document
+    .getElementById("announcementText")
+    .value
+    .trim();
+
+  if(!title||!body){
+
+    alert(
+      "اكتب عنوان ونص الإعلان."
+    );
+
+    return;
+  }
+
+  const {
+    error
+  }=await db
+  .from("announcements")
+  .insert({
     title,
     body
   });
 
   if(error){
-    alert("❌ تعذر نشر الإعلان.\n\n"+formatSupabaseError(error));
+
+    alert(
+      "❌ تعذر نشر الإعلان.\n\n"+
+      formatSupabaseError(error)
+    );
+
     return;
   }
 
-  document.getElementById("announcementTitle").value="";
-  document.getElementById("announcementText").value="";
+  document
+  .getElementById("announcementTitle")
+  .value="";
 
-  alert("📢 تم نشر الإعلان.");
+  document
+  .getElementById("announcementText")
+  .value="";
+
+  alert(
+    "📢 تم نشر الإعلان."
+  );
 
   await loadDeveloperAnnouncements();
 }
 
+
 async function loadDeveloperAnnouncements(){
 
-  const list=document.getElementById("developerAnnouncementsList");
-  if(!list) return;
+  const list=
+    document.getElementById(
+      "developerAnnouncementsList"
+    );
 
-  list.innerHTML="⏳ جاري تحميل الإعلانات...";
+  if(!list){
+    return;
+  }
 
-  const {data,error}=await db
+  list.innerHTML=
+    "⏳ جاري تحميل الإعلانات...";
+
+  const {
+    data,
+    error
+  }=await db
   .from("announcements")
-  .select("id,title,body,created_at")
-  .order("created_at",{ascending:false});
+  .select(
+    "id,title,body,created_at"
+  )
+  .order(
+    "created_at",
+    {ascending:false}
+  );
 
   if(error){
-    list.innerHTML="<div class='empty'>❌ تعذر تحميل الإعلانات.</div>";
+
+    list.innerHTML=
+      "<div class='empty'>❌ تعذر تحميل الإعلانات.</div>";
+
     return;
   }
 
   if(!data||!data.length){
-    list.innerHTML="<div class='empty'>📢 لا توجد إعلانات منشورة.</div>";
+
+    list.innerHTML=
+      "<div class='empty'>📢 لا توجد إعلانات منشورة.</div>";
+
     return;
   }
 
-  list.innerHTML=data.map(a=>`
+  list.innerHTML=
+    data.map(a=>`
 
-  <div class="card">
+    <div class="card">
 
-    <h3>📢 ${escapeHtml(a.title)}</h3>
+      <h3>
+        📢 ${escapeHtml(a.title)}
+      </h3>
 
-    <p>${escapeHtml(a.body)}</p>
+      <p>
+        ${escapeHtml(a.body)}
+      </p>
 
-    <button class="small-btn delete" onclick="deleteAnnouncement('${a.id}')">
-      🗑️ حذف الإعلان
-    </button>
+      <button
+        class="small-btn delete"
+        onclick="deleteAnnouncement('${a.id}')"
+      >
+        🗑️ حذف الإعلان
+      </button>
 
-  </div>
+    </div>
 
-  `).join("");
+    `).join("");
 }
+
 
 async function deleteAnnouncement(id){
 
-  if(!(await requireDeveloper())) return;
+  if(!(await requireDeveloper())){
+    return;
+  }
 
-  if(!confirm("هل أنت متأكد من حذف هذا الإعلان؟")) return;
+  if(!confirm(
+    "هل أنت متأكد من حذف هذا الإعلان؟"
+  )){
+    return;
+  }
 
-  const {error}=await db
+  const {
+    error
+  }=await db
   .from("announcements")
   .delete()
   .eq("id",id);
 
   if(error){
-    alert("❌ تعذر حذف الإعلان.\n\n"+formatSupabaseError(error));
+
+    alert(
+      "❌ تعذر حذف الإعلان.\n\n"+
+      formatSupabaseError(error)
+    );
+
     return;
   }
 
-  alert("✅ تم حذف الإعلان.");
+  alert(
+    "✅ تم حذف الإعلان."
+  );
 
   await loadDeveloperAnnouncements();
 }
+
 
 /* =========================
    الامتحانات - المطور
 ========================= */
 
-let editingExamId=null;
-
 async function createExam(){
 
-  if(!(await requireDeveloper())) return;
-
-  const title=document.getElementById("examTitleInput").value.trim();
-  const duration=Number(document.getElementById("examDurationInput").value);
-
-  if(!title||!Number.isFinite(duration)||duration<1){
-    alert("اكتب اسم الامتحان ومدة صحيحة بالدقائق.");
+  if(!(await requireDeveloper())){
     return;
   }
 
-  const {data,error}=await db
+  const title=
+    document
+    .getElementById("examTitleInput")
+    .value
+    .trim();
+
+  const duration=
+    Number(
+      document
+      .getElementById("examDurationInput")
+      .value
+    );
+
+  if(
+    !title||
+    !Number.isFinite(duration)||
+    duration<1
+  ){
+
+    alert(
+      "اكتب اسم الامتحان ومدة صحيحة بالدقائق."
+    );
+
+    return;
+  }
+
+  const {
+    data,
+    error
+  }=await db
   .from("exams")
   .insert({
     title,
@@ -947,231 +2991,428 @@ async function createExam(){
   .single();
 
   if(error){
-    alert("❌ تعذر إنشاء الامتحان.\n\n"+formatSupabaseError(error));
+
+    alert(
+      "❌ تعذر إنشاء الامتحان.\n\n"+
+      formatSupabaseError(error)
+    );
+
     return;
   }
 
-  document.getElementById("examTitleInput").value="";
-  document.getElementById("examDurationInput").value="";
+  document
+  .getElementById("examTitleInput")
+  .value="";
 
-  alert("✅ تم إنشاء الامتحان.");
+  document
+  .getElementById("examDurationInput")
+  .value="";
+
+  alert(
+    "✅ تم إنشاء الامتحان."
+  );
 
   await loadDeveloperExams();
 
-  openExamEditor(data.id,data.title);
+  openExamEditor(
+    data.id,
+    data.title
+  );
 }
+
 
 async function loadDeveloperExams(){
 
-  const list=document.getElementById("developerExamsList");
-  if(!list) return;
+  const list=
+    document.getElementById(
+      "developerExamsList"
+    );
 
-  list.innerHTML="⏳ جاري تحميل الامتحانات...";
+  if(!list){
+    return;
+  }
 
-  const {data,error}=await db
+  list.innerHTML=
+    "⏳ جاري تحميل الامتحانات...";
+
+  const {
+    data,
+    error
+  }=await db
   .from("exams")
-  .select("id,title,duration_minutes,is_active,created_at")
-  .order("created_at",{ascending:false});
+  .select(
+    "id,title,duration_minutes,is_active,created_at"
+  )
+  .order(
+    "created_at",
+    {ascending:false}
+  );
 
   if(error){
-    list.innerHTML="<div class='empty'>❌ تعذر تحميل الامتحانات.<br><small>"+
-    escapeHtml(formatSupabaseError(error))+"</small></div>";
+
+    list.innerHTML=
+      "<div class='empty'>❌ تعذر تحميل الامتحانات.<br><small>"+
+      escapeHtml(
+        formatSupabaseError(error)
+      )+
+      "</small></div>";
+
     return;
   }
 
   if(!data||!data.length){
-    list.innerHTML="<div class='empty'>🧠 لا توجد امتحانات حتى الآن.</div>";
+
+    list.innerHTML=
+      "<div class='empty'>🧠 لا توجد امتحانات حتى الآن.</div>";
+
     return;
   }
 
-  list.innerHTML=data.map(e=>`
+  list.innerHTML=
+    data.map(e=>`
 
-  <div class="card">
+    <div class="card">
 
-    <h3>🧠 ${escapeHtml(e.title)}</h3>
+      <h3>
+        🧠 ${escapeHtml(e.title)}
+      </h3>
 
-    <p>
-      ⏱️ المدة: ${e.duration_minutes} دقيقة
-      <br>
-      الحالة:
-      <span class="exam-status">
-        ${e.is_active?"🟢 مفتوح للطلاب":"🔴 مغلق"}
-      </span>
-    </p>
+      <p>
 
-    <button
-      class="small-btn"
-      style="background:#8d4770"
-      onclick="openExamEditor('${e.id}','${escapeHtml(e.title).replace(/'/g,"\\'")}')"
-    >
-      📝 الأسئلة
-    </button>
+        ⏱️ المدة:
+        ${e.duration_minutes}
+        دقيقة
 
-    <button
-      class="small-btn"
-      style="background:#1877f2"
-      onclick="showExamResults('${e.id}')"
-    >
-      📊 النتائج
-    </button>
+        <br>
 
-    <button
-      class="small-btn"
-      style="background:${e.is_active?"#c0392b":"#27ae60"}"
-      onclick="toggleExam('${e.id}',${e.is_active})"
-    >
-      ${e.is_active?"🔴 غلق الامتحان":"🟢 فتح الامتحان"}
-    </button>
+        الحالة:
 
-    <button
-      class="small-btn delete"
-      onclick="deleteExam('${e.id}')"
-    >
-      🗑️ حذف
-    </button>
+        <span class="exam-status">
 
-  </div>
+          ${
+            e.is_active
+            ?"🟢 مفتوح للطلاب"
+            :"🔴 مغلق"
+          }
 
-  `).join("");
+        </span>
+
+      </p>
+
+
+      <button
+        class="small-btn"
+        style="background:#8d4770"
+        onclick="openExamEditor('${e.id}',${JSON.stringify(e.title)})"
+      >
+        📝 الأسئلة
+      </button>
+
+
+      <button
+        class="small-btn"
+        style="background:#1877f2"
+        onclick="showExamResults('${e.id}')"
+      >
+        📊 النتائج
+      </button>
+
+
+      <button
+        class="small-btn"
+        style="background:${
+          e.is_active
+          ?"#c0392b"
+          :"#27ae60"
+        }"
+        onclick="toggleExam('${e.id}',${e.is_active})"
+      >
+
+        ${
+          e.is_active
+          ?"🔴 غلق الامتحان"
+          :"🟢 فتح الامتحان"
+        }
+
+      </button>
+
+
+      <button
+        class="small-btn delete"
+        onclick="deleteExam('${e.id}')"
+      >
+        🗑️ حذف
+      </button>
+
+    </div>
+
+    `).join("");
 }
+
 
 async function toggleExam(id,isActive){
 
-  if(!(await requireDeveloper())) return;
-
-  const action=isActive?"غلق":"فتح";
-
-  if(!confirm(`هل تريد ${action} الامتحان؟`)) return;
-
-  const {error}=await db
-  .from("exams")
-  .update({is_active:!isActive})
-  .eq("id",id);
-
-  if(error){
-    alert("❌ تعذر تغيير حالة الامتحان.\n\n"+formatSupabaseError(error));
+  if(!(await requireDeveloper())){
     return;
   }
 
-  alert(`✅ تم ${action} الامتحان.`);
+  const action=
+    isActive
+    ?"غلق"
+    :"فتح";
+
+  if(!confirm(
+    `هل تريد ${action} الامتحان؟`
+  )){
+    return;
+  }
+
+  const {
+    error
+  }=await db
+  .from("exams")
+  .update({
+    is_active:!isActive
+  })
+  .eq("id",id);
+
+  if(error){
+
+    alert(
+      "❌ تعذر تغيير حالة الامتحان.\n\n"+
+      formatSupabaseError(error)
+    );
+
+    return;
+  }
+
+  alert(
+    `✅ تم ${action} الامتحان.`
+  );
 
   await loadDeveloperExams();
 }
 
+
 async function deleteExam(id){
 
-  if(!(await requireDeveloper())) return;
-
-  if(!confirm("⚠️ حذف الامتحان سيحذف أسئلته ومحاولاته ونتائجه. هل أنت متأكد؟"))
+  if(!(await requireDeveloper())){
     return;
+  }
 
-  const {error}=await db
+  if(!confirm(
+    "⚠️ حذف الامتحان سيحذف أسئلته ومحاولاته ونتائجه. هل أنت متأكد؟"
+  )){
+    return;
+  }
+
+  const {
+    error
+  }=await db
   .from("exams")
   .delete()
   .eq("id",id);
 
   if(error){
-    alert("❌ تعذر حذف الامتحان.\n\n"+formatSupabaseError(error));
+
+    alert(
+      "❌ تعذر حذف الامتحان.\n\n"+
+      formatSupabaseError(error)
+    );
+
     return;
   }
 
   if(editingExamId===id){
+
     editingExamId=null;
-    document.getElementById("examEditor").style.display="none";
+
+    document
+    .getElementById("examEditor")
+    .style.display="none";
+
   }
 
-  alert("✅ تم حذف الامتحان.");
+  alert(
+    "✅ تم حذف الامتحان."
+  );
 
   await loadDeveloperExams();
 }
 
+
 async function openExamEditor(id,title){
 
-  if(!(await requireDeveloper())) return;
+  if(!(await requireDeveloper())){
+    return;
+  }
 
   editingExamId=id;
 
-  document.getElementById("examEditor").style.display="block";
-  document.getElementById("editingExamTitle").textContent="📝 أسئلة: "+title;
+  document
+  .getElementById("examEditor")
+  .style.display="block";
+
+  document
+  .getElementById("editingExamTitle")
+  .textContent=
+    "📝 أسئلة: "+title;
 
   await loadExamQuestionsForDeveloper();
 
-  document.getElementById("examEditor").scrollIntoView({
+  document
+  .getElementById("examEditor")
+  .scrollIntoView({
     behavior:"smooth",
     block:"start"
   });
 }
 
+
 async function loadExamQuestionsForDeveloper(){
 
-  if(!editingExamId) return;
+  if(!editingExamId){
+    return;
+  }
 
-  const list=document.getElementById("questionsEditorList");
+  const list=
+    document.getElementById(
+      "questionsEditorList"
+    );
 
-  list.innerHTML="⏳ جاري تحميل الأسئلة...";
+  list.innerHTML=
+    "⏳ جاري تحميل الأسئلة...";
 
-  const {data,error}=await db
+  const {
+    data,
+    error
+  }=await db
   .from("exam_questions")
-  .select("id,question_text,option_a,option_b,option_c,option_d,correct_answer")
-  .eq("exam_id",editingExamId)
+  .select(
+    "id,question_text,option_a,option_b,option_c,option_d,correct_answer"
+  )
+  .eq(
+    "exam_id",
+    editingExamId
+  )
   .order("created_at");
 
   if(error){
-    list.innerHTML="<div class='empty'>❌ تعذر تحميل الأسئلة.<br>"+
-    escapeHtml(formatSupabaseError(error))+"</div>";
+
+    list.innerHTML=
+      "<div class='empty'>❌ تعذر تحميل الأسئلة.<br>"+
+      escapeHtml(
+        formatSupabaseError(error)
+      )+
+      "</div>";
+
     return;
   }
 
   if(!data||!data.length){
-    list.innerHTML="<div class='empty'>لا توجد أسئلة مضافة حتى الآن.</div>";
+
+    list.innerHTML=
+      "<div class='empty'>لا توجد أسئلة مضافة حتى الآن.</div>";
+
     return;
   }
 
-  list.innerHTML=data.map((q,i)=>`
+  list.innerHTML=
+    data.map((q,i)=>`
 
-  <div class="card">
+    <div class="card">
 
-    <strong>السؤال ${i+1}:</strong>
+      <strong>
+        السؤال ${i+1}:
+      </strong>
 
-    <p>${escapeHtml(q.question_text)}</p>
+      <p>
+        ${escapeHtml(q.question_text)}
+      </p>
 
-    <div>أ) ${escapeHtml(q.option_a)}</div>
-    <div>ب) ${escapeHtml(q.option_b)}</div>
-    <div>ج) ${escapeHtml(q.option_c)}</div>
-    <div>د) ${escapeHtml(q.option_d)}</div>
+      <div>
+        أ) ${escapeHtml(q.option_a)}
+      </div>
 
-    <p>
-      ✅ الإجابة الصحيحة:
-      ${escapeHtml(q.correct_answer)}
-    </p>
+      <div>
+        ب) ${escapeHtml(q.option_b)}
+      </div>
 
-    <button
-      class="small-btn delete"
-      onclick="deleteExamQuestion('${q.id}')"
-    >
-      🗑️ حذف السؤال
-    </button>
+      <div>
+        ج) ${escapeHtml(q.option_c)}
+      </div>
 
-  </div>
+      <div>
+        د) ${escapeHtml(q.option_d)}
+      </div>
 
-  `).join("");
+      <p>
+        ✅ الإجابة الصحيحة:
+        ${escapeHtml(q.correct_answer)}
+      </p>
+
+      <button
+        class="small-btn delete"
+        onclick="deleteExamQuestion('${q.id}')"
+      >
+        🗑️ حذف السؤال
+      </button>
+
+    </div>
+
+    `).join("");
 }
+
 
 async function addExamQuestion(){
 
-  if(!(await requireDeveloper())) return;
-
-  if(!editingExamId){
-    alert("اختر امتحاناً أولاً.");
+  if(!(await requireDeveloper())){
     return;
   }
 
-  const question_text=document.getElementById("questionText").value.trim();
-  const option_a=document.getElementById("optionA").value.trim();
-  const option_b=document.getElementById("optionB").value.trim();
-  const option_c=document.getElementById("optionC").value.trim();
-  const option_d=document.getElementById("optionD").value.trim();
-  const correct_answer=document.getElementById("correctAnswer").value;
+  if(!editingExamId){
+
+    alert(
+      "اختر امتحاناً أولاً."
+    );
+
+    return;
+  }
+
+  const question_text=
+    document
+    .getElementById("questionText")
+    .value
+    .trim();
+
+  const option_a=
+    document
+    .getElementById("optionA")
+    .value
+    .trim();
+
+  const option_b=
+    document
+    .getElementById("optionB")
+    .value
+    .trim();
+
+  const option_c=
+    document
+    .getElementById("optionC")
+    .value
+    .trim();
+
+  const option_d=
+    document
+    .getElementById("optionD")
+    .value
+    .trim();
+
+  const correct_answer=
+    document
+    .getElementById("correctAnswer")
+    .value;
 
   if(
     !question_text||
@@ -1181,11 +3422,17 @@ async function addExamQuestion(){
     !option_d||
     !correct_answer
   ){
-    alert("أكمل بيانات السؤال كلها.");
+
+    alert(
+      "أكمل بيانات السؤال كلها."
+    );
+
     return;
   }
 
-  const {error}=await db
+  const {
+    error
+  }=await db
   .from("exam_questions")
   .insert({
     exam_id:editingExamId,
@@ -1198,7 +3445,12 @@ async function addExamQuestion(){
   });
 
   if(error){
-    alert("❌ تعذر إضافة السؤال.\n\n"+formatSupabaseError(error));
+
+    alert(
+      "❌ تعذر إضافة السؤال.\n\n"+
+      formatSupabaseError(error)
+    );
+
     return;
   }
 
@@ -1209,48 +3461,82 @@ async function addExamQuestion(){
     "optionC",
     "optionD"
   ].forEach(id=>{
-    document.getElementById(id).value="";
+
+    document
+    .getElementById(id)
+    .value="";
+
   });
 
-  document.getElementById("correctAnswer").value="";
+  document
+  .getElementById("correctAnswer")
+  .value="";
 
   await loadExamQuestionsForDeveloper();
 
-  alert("✅ تم إضافة السؤال.");
+  alert(
+    "✅ تم إضافة السؤال."
+  );
 }
+
 
 async function deleteExamQuestion(id){
 
-  if(!(await requireDeveloper())) return;
+  if(!(await requireDeveloper())){
+    return;
+  }
 
-  if(!confirm("هل تريد حذف السؤال؟")) return;
+  if(!confirm(
+    "هل تريد حذف السؤال؟"
+  )){
+    return;
+  }
 
-  const {error}=await db
+  const {
+    error
+  }=await db
   .from("exam_questions")
   .delete()
   .eq("id",id);
 
   if(error){
-    alert("❌ تعذر حذف السؤال.\n\n"+formatSupabaseError(error));
+
+    alert(
+      "❌ تعذر حذف السؤال.\n\n"+
+      formatSupabaseError(error)
+    );
+
     return;
   }
 
   await loadExamQuestionsForDeveloper();
 }
 
+
 async function showExamResults(examId){
 
-  if(!(await requireDeveloper())) return;
+  if(!(await requireDeveloper())){
+    return;
+  }
 
   editingExamId=examId;
 
-  document.getElementById("examEditor").style.display="block";
+  document
+  .getElementById("examEditor")
+  .style.display="block";
 
-  const results=document.getElementById("examResultsList");
+  const results=
+    document.getElementById(
+      "examResultsList"
+    );
 
-  results.innerHTML="⏳ جاري تحميل النتائج...";
+  results.innerHTML=
+    "⏳ جاري تحميل النتائج...";
 
-  const {data,error}=await db.rpc(
+  const {
+    data,
+    error
+  }=await db.rpc(
     "get_exam_results",
     {
       p_exam_id:examId
@@ -1258,693 +3544,75 @@ async function showExamResults(examId){
   );
 
   if(error){
-    results.innerHTML="<div class='empty'>❌ تعذر تحميل النتائج.<br>"+
-    escapeHtml(formatSupabaseError(error))+"</div>";
+
+    results.innerHTML=
+      "<div class='empty'>❌ تعذر تحميل النتائج.<br>"+
+      escapeHtml(
+        formatSupabaseError(error)
+      )+
+      "</div>";
+
     return;
   }
 
   if(!data||!data.length){
-    results.innerHTML="<div class='empty'>لا يوجد طلاب.</div>";
+
+    results.innerHTML=
+      "<div class='empty'>لا يوجد طلاب.</div>";
+
     return;
   }
 
-  results.innerHTML=data.map(s=>{
+  results.innerHTML=
+    data.map(s=>{
 
-    let status=s.status||"لم يبدأ";
+      const status=
+        s.status||"لم يبدأ";
 
-    let scoreText="—";
+      let scoreText="—";
 
-    if(s.submitted_at!==null){
-      scoreText=
-      `${s.score??0} / ${s.total_questions??0}`;
-    }
+      if(s.submitted_at!==null){
 
-    return `
+        scoreText=
+          `${s.score??0} / ${
+            s.total_questions??0
+          }`;
 
-    <div class="card">
-
-      <strong>👨‍🎓 ${escapeHtml(s.student_name)}</strong>
-
-      <p>
-        الحالة:
-        <span class="exam-status">
-          ${escapeHtml(status)}
-        </span>
-      </p>
-
-      <p>
-        📊 الدرجة:
-        <strong>${scoreText}</strong>
-      </p>
-
-      ${
-        s.started_at
-        ? `<small>🕐 بدأ: ${new Date(s.started_at).toLocaleString("ar-EG")}</small>`
-        : ""
       }
 
-      ${
-        s.submitted_at
-        ? `<br><small>✅ سلّم: ${new Date(s.submitted_at).toLocaleString("ar-EG")}</small>`
-        : ""
-      }
+      return `
 
-    </div>
-
-    `;
-
-  }).join("");
-}
-
-/* =========================
-   امتحانات الطالب
-========================= */
-
-async function showStudentExams(){
-
-  if(!currentStudent){
-    alert("سجل دخول الطالب أولاً.");
-    return;
-  }
-
-  const list=document.getElementById("studentExamsList");
-
-  list.innerHTML="⏳ جاري تحميل الامتحانات...";
-
-  showPage("studentExamsPanel");
-
-  const {data,error}=await db.rpc("get_active_exams");
-
-  if(error){
-
-    console.error(error);
-
-    list.innerHTML=
-    "<div class='empty'>❌ تعذر تحميل الامتحانات.<br><small>"+
-    escapeHtml(formatSupabaseError(error))+
-    "</small></div>";
-
-    return;
-  }
-
-  if(!data||!data.length){
-
-    list.innerHTML=
-    "<div class='empty'>🧠 لا توجد امتحانات مفتوحة حالياً.</div>";
-
-    return;
-  }
-
-  list.innerHTML=data.map(exam=>`
-
-  <div class="card">
-
-    <h3>🧠 ${escapeHtml(exam.title)}</h3>
-
-    <p>
-      ⏱️ مدة الامتحان:
-      <strong>${exam.duration_minutes} دقيقة</strong>
-    </p>
-
-    <button
-      class="btn login"
-      style="width:100%"
-      onclick="startStudentExam('${exam.id}')"
-    >
-      🚀 بدء الامتحان
-    </button>
-
-  </div>
-
-  `).join("");
-}
-
-async function startStudentExam(examId){
-
-  if(!currentStudent){
-    alert("سجل دخول الطالب أولاً.");
-    return;
-  }
-
-  const {data,error}=await db.rpc(
-    "start_exam",
-    {
-      p_exam_id:examId,
-      p_name:currentStudent.name,
-      p_code:currentStudent.code
-    }
-  );
-
-  if(error){
-
-    console.error(error);
-
-    alert(
-      "❌ تعذر بدء الامتحان.\n\n"+
-      formatSupabaseError(error)
-    );
-
-    return;
-  }
-
-  currentAttempt=data;
-
-  const {data:exams,error:examError}=await db.rpc("get_active_exams");
-
-  if(examError){
-    alert("تعذر تحميل بيانات الامتحان.");
-    return;
-  }
-
-  const exam=exams.find(e=>e.id===examId);
-
-  if(!exam){
-    alert("الامتحان غير متاح حالياً.");
-    return;
-  }
-
-  currentExam=exam;
-
-  /*
-    لو الطالب كان بدأ الامتحان قبل كده
-    وما سلّمش، نستخدم نفس وقت البداية.
-  */
-
-  if(data.submitted_at){
-
-    await showPreviousExamResult(data);
-    return;
-  }
-
-  await loadStudentExamQuestions();
-
-  showPage("takeExamPanel");
-
-  startExamTimer(
-    data.started_at,
-    data.duration_minutes
-  );
-}
-
-async function loadStudentExamQuestions(){
-
-  const list=document.getElementById("examQuestionsList");
-
-  list.innerHTML="⏳ جاري تحميل الأسئلة...";
-
-  const {data,error}=await db.rpc(
-    "get_exam_questions",
-    {
-      p_exam_id:currentExam.id
-    }
-  );
-
-  if(error){
-
-    console.error(error);
-
-    list.innerHTML=
-    "<div class='empty'>❌ تعذر تحميل أسئلة الامتحان.<br>"+
-    escapeHtml(formatSupabaseError(error))+
-    "</div>";
-
-    return;
-  }
-
-  if(!data||!data.length){
-
-    list.innerHTML=
-    "<div class='empty'>❌ الامتحان لا يحتوي على أسئلة.</div>";
-
-    document.getElementById("submitExamBtn").style.display="none";
-
-    return;
-  }
-
-  document.getElementById("submitExamBtn").style.display="block";
-  document.getElementById("examTitle").textContent=currentExam.title;
-
-  list.innerHTML=data.map((q,index)=>`
-
-  <div class="exam-question">
-
-    <strong>
-      ${index+1}) ${escapeHtml(q.question_text)}
-    </strong>
-
-    <label class="exam-option">
-      <input type="radio" name="question_${q.id}" value="a">
-      أ) ${escapeHtml(q.option_a)}
-    </label>
-
-    <label class="exam-option">
-      <input type="radio" name="question_${q.id}" value="b">
-      ب) ${escapeHtml(q.option_b)}
-    </label>
-
-    <label class="exam-option">
-      <input type="radio" name="question_${q.id}" value="c">
-      ج) ${escapeHtml(q.option_c)}
-    </label>
-
-    <label class="exam-option">
-      <input type="radio" name="question_${q.id}" value="d">
-      د) ${escapeHtml(q.option_d)}
-    </label>
-
-  </div>
-
-  `).join("");
-}
-
-function startExamTimer(startedAt,durationMinutes){
-
-  if(examTimerInterval){
-    clearInterval(examTimerInterval);
-  }
-
-  const start=new Date(startedAt).getTime();
-  const end=start+(durationMinutes*60*1000);
-
-  function update(){
-
-    const remaining=Math.max(0,end-Date.now());
-
-    const totalSeconds=Math.floor(remaining/1000);
-
-    const minutes=Math.floor(totalSeconds/60);
-    const seconds=totalSeconds%60;
-
-    document.getElementById("examTimer").textContent=
-    `⏱️ ${String(minutes).padStart(2,"0")}:${String(seconds).padStart(2,"0")}`;
-
-    if(remaining<=0){
-
-      clearInterval(examTimerInterval);
-      examTimerInterval=null;
-
-      document.getElementById("examTimer").textContent=
-      "⏰ انتهى الوقت";
-
-      autoSubmitExam();
-
-    }
-  }
-
-  update();
-
-  examTimerInterval=setInterval(update,1000);
-}
-
-function collectExamAnswers(){
-
-  const inputs=document.querySelectorAll(
-    "#examQuestionsList input[type='radio']:checked"
-  );
-
-  const answers=[];
-
-  inputs.forEach(input=>{
-
-    const questionId=input.name.replace("question_","");
-
-    answers.push({
-      question_id:questionId,
-      answer:input.value
-    });
-
-  });
-
-  return answers;
-}
-
-async function submitCurrentExam(){
-
-  if(!currentAttempt||!currentStudent){
-    alert("لا توجد محاولة امتحان مفتوحة.");
-    return;
-  }
-
-  if(!confirm("هل تريد تسليم الامتحان الآن؟")) return;
-
-  await submitExamNow(false);
-}
-
-async function autoSubmitExam(){
-
-  if(!currentAttempt||!currentStudent) return;
-
-  await submitExamNow(true);
-}
-
-async function submitExamNow(autoSubmitted){
-
-  const btn=document.getElementById("submitExamBtn");
-
-  if(btn) btn.disabled=true;
-
-  const answers=collectExamAnswers();
-
-  const {data,error}=await db.rpc(
-    "submit_exam",
-    {
-      p_attempt_id:currentAttempt.attempt_id,
-      p_name:currentStudent.name,
-      p_code:currentStudent.code,
-      p_answers:answers
-    }
-  );
-
-  if(error){
-
-    console.error(error);
-
-    if(btn) btn.disabled=false;
-
-    alert(
-      "❌ تعذر تسليم الامتحان.\n\n"+
-      formatSupabaseError(error)
-    );
-
-    return;
-  }
-
-  if(examTimerInterval){
-    clearInterval(examTimerInterval);
-    examTimerInterval=null;
-  }
-
-  document.getElementById("examTimer").textContent=
-  data.expired||autoSubmitted
-  ?"⏰ انتهى الوقت"
-  :"✅ تم تسليم الامتحان";
-
-  document.getElementById("examResultBox").style.display="block";
-
-  document.getElementById("examResultBox").innerHTML=`
-    <strong>🎉 تم تسليم الامتحان</strong>
-    <br><br>
-    درجتك:
-    <strong>${data.score??0} / ${data.total??0}</strong>
-  `;
-
-  if(btn) btn.style.display="none";
-}
-
-async function showPreviousExamResult(data){
-
-  showPage("takeExamPanel");
-
-  document.getElementById("examTitle").textContent=currentExam.title;
-
-  document.getElementById("examTimer").textContent="✅ تم تسليم الامتحان";
-
-  document.getElementById("examQuestionsList").innerHTML=
-  "<div class='empty'>هذا الامتحان تم تسليمه من قبل.</div>";
-
-  document.getElementById("submitExamBtn").style.display="none";
-
-  document.getElementById("examResultBox").style.display="block";
-
-  document.getElementById("examResultBox").innerHTML=`
-    <strong>📊 نتيجة الامتحان</strong>
-    <br><br>
-    درجتك:
-    <strong>${data.score??0}</strong>
-  `;
-}
-
-/* =========================
-   درجات الطالب
-========================= */
-
-async function showGrades(){
-
-  if(!currentStudent) return;
-
-  const list=document.getElementById("gradesList");
-
-  list.innerHTML="⏳ جاري تحميل الدرجات...";
-
-  /*
-    استخدمنا currentStudent.code
-    بدل خانة تسجيل الدخول التي تم مسحها.
-  */
-
-  const {data,error}=await db.rpc(
-    "student_login",
-    {
-      p_name:currentStudent.name,
-      p_code:currentStudent.code
-    }
-  );
-
-  if(error||!data){
-
-    list.innerHTML=
-    "<div class='empty'>تعذر تحميل الدرجات.</div>";
-
-    showPage("gradesPanel");
-
-    return;
-  }
-
-  let html="";
-
-  if(!data.grades?.length){
-
-    html="<div class='empty'>لا توجد درجات مضافة حتى الآن.</div>";
-
-  }else{
-
-    data.grades.forEach(g=>{
-
-      html+=`
-
-      <div class="grade-row">
+      <div class="card">
 
         <strong>
-          📝 ${escapeHtml(g.name)}
+          👨‍🎓 ${escapeHtml(s.student_name)}
         </strong>
 
-        <br>
+        <p>
 
-        الدرجة:
-        ${escapeHtml(g.value)}
-        /
-        ${escapeHtml(g.max)}
+          الحالة:
 
-      </div>
+          <span class="exam-status">
+            ${escapeHtml(status)}
+          </span>
 
-      `;
+        </p>
 
-    });
-  }
+        <p>
 
-  if(data.evaluations?.length){
+          📊 الدرجة:
 
-    html+="<h3 style='color:#7b3156;'>⭐ التقييم</h3>";
+          <strong>
+            ${scoreText}
+          </strong>
 
-    data.evaluations.forEach(e=>{
+        </p>
 
-      html+=`
-      <div class="grade-row">
-        ⭐ ${escapeHtml(e.text)}
-      </div>
-      `;
-
-    });
-  }
-
-  list.innerHTML=html;
-
-  showPage("gradesPanel");
-}
-
-/* =========================
-   الواجبات للطلاب
-========================= */
-
-async function showHomework(){
-
-  const list=document.getElementById("homeworkList");
-
-  list.innerHTML="⏳ جاري تحميل الواجبات...";
-
-  const {data,error}=await db
-  .from("homework")
-  .select("title,description,due_date")
-  .order("created_at",{ascending:false});
-
-  if(error){
-
-    console.error(error);
-
-    list.innerHTML=
-    "<div class='empty'>تعذر تحميل الواجبات.</div>";
-
-  }else if(!data.length){
-
-    list.innerHTML=
-    "<div class='empty'>لا توجد واجبات حالياً.</div>";
-
-  }else{
-
-    list.innerHTML=data.map(h=>`
-
-    <div class="card">
-
-      <h3>📝 ${escapeHtml(h.title)}</h3>
-
-      <p>${escapeHtml(h.description)}</p>
-
-      <small>
-        📅 موعد التسليم:
-        ${escapeHtml(h.due_date||"غير محدد")}
-      </small>
-
-    </div>
-
-    `).join("");
-  }
-
-  showPage("homeworkPanel");
-}
-
-/* =========================
-   الدروس للطلاب
-========================= */
-
-async function showLessons(){
-
-  const list=document.getElementById("lessonsList");
-
-  list.innerHTML="⏳ جاري تحميل الدروس...";
-
-  showPage("lessonsPanel");
-
-  const {data,error}=await db
-  .from("lessons")
-  .select("id,title,description,video_url,created_at")
-  .order("created_at",{ascending:false});
-
-  if(error){
-
-    console.error(error);
-
-    list.innerHTML=
-    "<div class='empty'>📚 تعذر تحميل الدروس.</div>";
-
-    return;
-  }
-
-  if(!data||!data.length){
-
-    list.innerHTML=
-    "<div class='empty'>📚 لا توجد دروس حالياً.</div>";
-
-    return;
-  }
-
-  list.innerHTML=data.map(lesson=>`
-
-  <div class="card">
-
-    <h3>📚 ${escapeHtml(lesson.title||"درس")}</h3>
-
-    ${
-      lesson.description
-      ?`<p>${escapeHtml(lesson.description)}</p>`
-      :""
-    }
-
-    ${
-      lesson.video_url
-      ?`
-      <button
-        class="btn login"
-        style="width:100%;margin-top:10px"
-        onclick="openLessonVideo('${escapeHtml(lesson.video_url)}')"
-      >
-        ▶️ فتح الدرس
-      </button>
-      `
-      :""
-    }
-
-  </div>
-
-  `).join("");
-}
-
-function openLessonVideo(url){
-
-  if(!url) return;
-
-  window.open(
-    url,
-    "_blank",
-    "noopener,noreferrer"
-  );
-}
-
-/* =========================
-   الإعلانات للطلاب
-========================= */
-
-async function showAnnouncements(){
-
-  const list=document.getElementById("announcementsList");
-
-  list.innerHTML="⏳ جاري تحميل الإعلانات...";
-
-  const {data,error}=await db
-  .from("announcements")
-  .select("id,title,body,created_at")
-  .order("created_at",{ascending:false});
-
-  if(error){
-
-    console.error(error);
-
-    list.innerHTML=
-    "<div class='empty'>تعذر تحميل الإعلانات.</div>";
-
-  }else if(!data||!data.length){
-
-    list.innerHTML=
-    "<div class='empty'>لا توجد إعلانات حالياً.</div>";
-
-  }else{
-
-    list.innerHTML=data.map(a=>`
-
-    <div class="card">
-
-      <h3>📢 ${escapeHtml(a.title)}</h3>
-
-      <p>${escapeHtml(a.body)}</p>
-
-    </div>
-
-    `).join("");
-  }
-
-  showPage("announcementsPanel");
-}
-
-/* =========================
-   Enter للمطور
-========================= */
-
-document.getElementById("developerPassword").addEventListener(
-  "keydown",
-  e=>{
-    if(e.key==="Enter") checkDeveloperPassword();
-  }
-);
-
-</script>
-
-</body>
-  </html>
+        ${
+          s.started_at
+          ?`
+          <small>
+            🕐 بدأ:
+            ${new Date(
+              s.started_at
+          
